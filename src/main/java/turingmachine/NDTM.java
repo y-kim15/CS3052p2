@@ -39,9 +39,9 @@ public class NDTM extends TM{
     //write every string combination
     public void writeToAddress(String curr){
         for(int i=0; i<curr.length(); i++){
-            addressTape.add(head++, Character.toString(curr.charAt(i)));
+            addressTape.add(addressHead++, Character.toString(curr.charAt(i)));
         }
-        addressTape.add(head++, "#");
+        addressTape.add(addressHead++, "#");
         num++;
     }
 
@@ -92,7 +92,7 @@ public class NDTM extends TM{
 
             if(tape.get(head) == null){
                 for(int i=0; i<FIRSTSIZE; i++){
-                    tape.set(head, "_");
+                    tape.set(head+i, "_");
                 }
                 currentSize += FIRSTSIZE;
             }

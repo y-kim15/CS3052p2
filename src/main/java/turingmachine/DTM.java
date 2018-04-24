@@ -62,7 +62,7 @@ public class DTM extends TM {
             head += move;
             if(tape.get(head) == null){
                 for(int i=0; i<FIRSTSIZE; i++){
-                    tape.set(head, "_");
+                    tape.set(head+i, "_");
                 }
                 currentSize += FIRSTSIZE;
             }

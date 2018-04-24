@@ -19,6 +19,8 @@ public class NDTMReader extends Reader {
 
     public NDTMReader(String filePath){
         super(filePath);
+        maxChild = 0;
+        ntm = new NDTM();
     }
 
 

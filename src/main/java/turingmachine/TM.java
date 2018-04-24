@@ -23,7 +23,6 @@ public class TM {
         return states;
     }
 
-
     public Set<String> getTapeAlph() {
         return tapeAlph;
     }
