@@ -365,4 +365,24 @@ public class Utils {
         }
     }
 
+    public static void printErrorMessage(int error){
+        switch (error){
+            case 0:
+                System.out.println("States + Number line error");
+                break;
+            case 1:
+                System.out.println("State listing line error");
+                break;
+            case 2:
+                System.out.println("Alphabet definition line error");
+                break;
+            case 3:
+                System.out.println("Transition listing line error");
+                break;
+            default:
+                System.out.println("Error in turingmachine.DTM description file");
+                break;
+        }
+    }
+
 }

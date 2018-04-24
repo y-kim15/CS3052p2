@@ -8,12 +8,14 @@
     <artifactId>TM</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <tm>testData/t4.txt</tm>
-        <input>t4_in.txt</input>
+        <dtm>testData/t4.txt</dtm>
+        <symbol>t4_in.txt</symbol>
+        <type>d</type>
     </properties>
 
     <dependencies>
@@ -47,10 +49,11 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>turingmachine.runtm</mainClass>
+                    <mainClass>turingmachine.runD</mainClass>
                     <arguments>
-                        <argument>${tm}</argument>
-                        <argument>${input}</argument>
+                        <argument>${dtm}</argument>
+                        <argument>${symbol}</argument>
+                        <argument>${type}</argument>
                     </arguments>
 
                 </configuration>

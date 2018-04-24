@@ -1,4 +1,8 @@
-turingmachine\Tuple.class
-turingmachine\runtm.class
-turingmachine\TM.class
-turingmachine\TMReader.class
+turingmachine/DTMReader.class
+turingmachine/runND.class
+turingmachine/DTM.class
+turingmachine/NDTM.class
+turingmachine/NDTMReader.class
+turingmachine/runD.class
+turingmachine/Reader.class
+turingmachine/Node.class

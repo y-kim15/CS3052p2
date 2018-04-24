@@ -13,7 +13,7 @@ public class Runruntm {
         JUnitCore junit = new JUnitCore();
         JUnitSystem system = new RealSystem();
         junit.addListener(new TextListener(system));
-        junit.run(runtm.class);
+        junit.run(runD.class);
 
 
     }

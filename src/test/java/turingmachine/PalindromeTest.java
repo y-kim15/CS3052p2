@@ -2,11 +2,6 @@ package turingmachine;
 
 
 import org.junit.*;
-import org.junit.internal.JUnitSystem;
-import org.junit.internal.RealSystem;
-import org.junit.internal.TextListener;
-import org.junit.runner.JUnitCore;
-import org.junit.runner.Result;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -22,9 +17,9 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
 public class PalindromeTest {
-    private static String TMDescriptionFile = "testData/t2.txt";
-    private static String inputFile = "./t2_in.txt";
-    private static String outputFile = "./t2_output.txt";
+    private static String TMDescriptionFile = "testData/t1.txt";
+    private static String inputFile = "./t1_in.txt";
+    private static String outputFile = "./t1_output.txt";
     private static FileWriter writer;
     private static List<String> inputBuffer = new ArrayList<String>();
     private static long totalTime = 0;
@@ -36,7 +31,7 @@ public class PalindromeTest {
     @Parameterized.Parameters()
     public static Iterable<Object[]> data()throws IOException {
 
-        return Utils.getParamsByConditions(2, true, min,max,repeat, step);
+        return Utils.getParamsByConditions(1, true, min,max,repeat, step);
     }
 
     private String input;
@@ -81,8 +76,10 @@ public class PalindromeTest {
 
         String[] args = {TMDescriptionFile, inputFile};
         System.out.println("input is " + input);
+        System.out.println("D file is " + TMDescriptionFile);
+        System.out.println("input file is " + inputFile);
         long startTime = System.nanoTime();
-        boolean result = runtm.runTm(TMDescriptionFile, inputFile);
+        boolean result = runD.runTm(TMDescriptionFile, inputFile);
         long endTime   = System.nanoTime();
         long time = (endTime - startTime)/100000;
         totalTime += time;

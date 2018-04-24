@@ -1,5 +1,11 @@
-C:\Users\yk30\Documents\CS3052p2\src\main\java\turingmachine\TM.java
-C:\Users\yk30\Documents\CS3052p2\src\main\java\turingmachine\Tuple.java
-C:\Users\yk30\Documents\CS3052p2\src\main\java\turingmachine\TMReader.java
-C:\Users\yk30\Documents\CS3052p2\src\main\java\turingmachine\runtm.java
-C:\Users\yk30\Documents\CS3052p2\src\main\java\turingmachine\Utils.java
+/cs/home/yk30/Documents/cs3052/CS3052p2/src/main/java/turingmachine/runD.java
+/cs/home/yk30/Documents/cs3052/CS3052p2/src/main/java/turingmachine/Node.java
+/cs/home/yk30/Documents/cs3052/CS3052p2/src/main/java/turingmachine/runND.java
+/cs/home/yk30/Documents/cs3052/CS3052p2/src/main/java/turingmachine/TM.java
+/cs/home/yk30/Documents/cs3052/CS3052p2/src/main/java/turingmachine/NDTM.java
+/cs/home/yk30/Documents/cs3052/CS3052p2/src/main/java/turingmachine/DTMReader.java
+/cs/home/yk30/Documents/cs3052/CS3052p2/src/main/java/turingmachine/Tuple.java
+/cs/home/yk30/Documents/cs3052/CS3052p2/src/main/java/turingmachine/DTM.java
+/cs/home/yk30/Documents/cs3052/CS3052p2/src/main/java/turingmachine/NDTMReader.java
+/cs/home/yk30/Documents/cs3052/CS3052p2/src/main/java/turingmachine/Utils.java
+/cs/home/yk30/Documents/cs3052/CS3052p2/src/main/java/turingmachine/Reader.java
