@@ -121,12 +121,15 @@ public class NDTMReader extends Reader {
                     if(i == states + 2){
                         currentState = state1;
                         symbol = input1;
+                        nChild = 1;
                     }
                     else{
                         if(state1.equals(currentState) && input1.equals(symbol)) nChild++;
                         else {
                             if(nChild > maxChild) maxChild = nChild;
-                            nChild = 0;
+                            nChild = 1;
+                            currentState = state1;
+                            symbol = input1;
                         }
                     }
                     addTransition(state1, state2, input1, input2, dir);
@@ -163,7 +166,7 @@ public class NDTMReader extends Reader {
             Node parent = tree.get(t);
             child.setParent(parent);
             parent.addChildNote(child);
-            tree.put(t, child);
+            tree.put(t, parent);
         }
         else{
             Node n = new Node(state1, input1);
@@ -178,6 +181,7 @@ public class NDTMReader extends Reader {
        ntm.addTapeAlph(alph);
        ntm.addAccepts(accept);
        ntm.setMaxChild(maxChild);
+       System.out.println("max child value is " + maxChild);
        ntm.setTree(tree);
 
     }

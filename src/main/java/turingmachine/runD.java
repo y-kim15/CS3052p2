@@ -104,7 +104,6 @@ public class runD {
             else{
                 System.out.println("we are in nd zone");
                 NDTMReader r = new NDTMReader(path);
-                r.setFilePath(path);
                 String read = sc.next();
                 r.readFile();
                 System.out.println("print states");

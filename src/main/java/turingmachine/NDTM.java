@@ -3,6 +3,7 @@ package turingmachine;
 import java.util.*;
 
 public class NDTM extends TM{
+    private String input;
     private List<String> tape;
     private List<String> addressTape;
     private int addressHead;
@@ -30,7 +31,7 @@ public class NDTM extends TM{
     public String[] getNumberArray(int n){
         String[] array = new String[n];
         for(int i=0; i < n; i++){
-            array[i] = Integer.toString(i);
+            array[i] = Integer.toString(i+1);
         }
         return array;
     }
@@ -66,17 +67,26 @@ public class NDTM extends TM{
 
     public boolean process(String state, String symbol){
         boolean accept = false;
+        int count = 0;
         while(!accept){
+            System.out.println("state " + state +  " and symbol " + symbol);
             Tuple read = new Tuple(state, symbol);
             if(!tree.containsKey(read)){
                 System.out.println("Reject, no such transition");
                 break;
             }
             Node current = tree.get(read);
+            if(count == input.length()){
+                System.out.println("went over number of transitions possible");
+                break;
+            }
             int childOrder = Integer.parseInt(addressTape.get(addressHead++));
             List<Node> children = current.getChildren();
-            if(children.size() < childOrder) break;
-            Node child = children.get(childOrder);
+            System.out.println("current has " + children.size() + "children and order is " + childOrder);
+            if(children.size() < childOrder){
+                System.out.println("fewer number of children, invalid");
+                break;}
+            Node child = children.get(childOrder-1);
             String nextState = child.getState();
             String toWrite = child.getSymbol();
             int move = Utils.getDirection(child.getDir());
@@ -85,8 +95,10 @@ public class NDTM extends TM{
                 accept = true;
                 break;
             }
+
             currentState = nextState;
             tape.set(head, toWrite);
+            System.out.println("next state is " + currentState + " and write to head " + toWrite);
             if(head == 0 && move == -1) move = 0;
             head += move;
 
@@ -98,15 +110,21 @@ public class NDTM extends TM{
             }
             state = currentState;
             symbol = tape.get(head);
+            count++;
         }
         return accept;
     }
 
     public boolean read(String input){
-        String[] nums = getNumberArray(input.length());
+        this.input = input;
+        System.out.println("Start reading inside ndtm");
+        String[] nums = getNumberArray(maxChild);
+        System.out.println(Arrays.deepToString(nums));
         getPossibleStrings(input.length(), nums, "");
         addressHead = 0;
+        System.out.println("there are " + num + " combinations");
         for(int i=0; i<num; i++){
+            System.out.println("i is " + i + "-----------");
             currentState = getStates()[0];
             for(int j=0; j<input.length(); j++){
                 tape.set(j, Character.toString(input.charAt(j)));
@@ -114,11 +132,12 @@ public class NDTM extends TM{
             if(process(currentState, tape.get(head))) return true;
             tape.clear();
             currentSize = FIRSTSIZE + input.length();
-            tape.addAll(Collections.nCopies(currentSize, "_"));
+            tape.addAll(0, Collections.nCopies(currentSize, "_"));
             while(!addressTape.get(addressHead).equals("#")){
                 addressHead++;
             }
             addressHead++;
+            head = 0;
         }
         return false;
 

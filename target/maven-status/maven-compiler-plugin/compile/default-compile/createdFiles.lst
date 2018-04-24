@@ -1,7 +1,10 @@
-turingmachine/DTMReader.class
-turingmachine/NDTMReader.class
-turingmachine/DTM.class
-turingmachine/NDTM.class
-turingmachine/runD.class
-turingmachine/Reader.class
-turingmachine/Node.class
+turingmachine\DTM.class
+turingmachine\DTMReader.class
+turingmachine\NDTMReader.class
+turingmachine\runD.class
+turingmachine\Tuple.class
+turingmachine\Reader.class
+turingmachine\Utils.class
+turingmachine\NDTM.class
+turingmachine\Node.class
+turingmachine\TM.class

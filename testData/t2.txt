@@ -22,7 +22,7 @@ s19 +
 alphabet 5 0 1 # X *
 s0 0 s1 _ R
 s0 1 s2 _ R
-s0 _ s18 _ S
+s0 _ s19 _ S
 s1 0 s1 0 R
 s1 1 s1 1 R
 s1 # s3 # R
