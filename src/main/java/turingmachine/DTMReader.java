@@ -105,11 +105,10 @@ public class DTMReader extends Reader {
                         Set<String> al = new HashSet<String>(Arrays.asList(alph));
 
                         if (!st.contains(state1) || !st.contains(state2) || !al.contains(input1) || !al.contains(input2)
-                                || !getDirections().contains(dir)) {
+                                || !getDirections().contains(dir) || dtm.checkTransition(state1, input1)) {
                             setError(3);
                             throw new NumberFormatException();
                         }
-                        
                         //System.out.println(Arrays.deepToString(line));
                         dtm.addTransition(line);
                     } else {

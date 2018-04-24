@@ -52,7 +52,7 @@ public class NDTMReader extends Reader {
                 }
             }
             else if(i > 0 && i <= states){
-                p = Pattern.compile("s[0-9]+\\s\\+?");
+                p = Pattern.compile("s[0-9]+(\\s\\+)?");
                 m = p.matcher(read);
                 if(m.find()){
 
@@ -179,5 +179,7 @@ public class NDTMReader extends Reader {
        ntm.setTree(tree);
 
     }
+
+    public NDTM getNtm(){return ntm; }
 
 }

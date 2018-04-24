@@ -36,19 +36,38 @@ public class runD {
         }
         return false;
     }
-    public static void run(String type, String path, String read){
-        Reader r;
-        if(type.equals(dtm)){
-            r = new DTMReader(path);
-        }
-        else {
-            r = new NDTMReader(path);
-        }
 
+    public static boolean runNtm(String path, String inputFile) throws Exception {
+        NDTMReader r = new NDTMReader();
+        try{
+            File file = new File(inputFile);
+            Scanner sc = new Scanner(file);
+            //System.out.println("read");
+            //sc.useDelimiter("\\n");
+            boolean result = false;
+            if(sc.hasNext()) {
+                r.setFilePath(path);
+                String read = sc.next();
+                r.readFile();
+                r.buildTM();
+                NDTM dtm = r.getNtm();
+                result = dtm.read(read);
+                return result;
+            }
 
+        }
+        catch (FileNotFoundException e){
+            System.out.println("turingmachine.NDTM description file is not found");
+        }
+        catch(NumberFormatException e){
+            System.out.println("Invalid format of file");
+            Utils.printErrorMessage(r.getError());
+        }
+        return false;
     }
+
     public static void main(String[] args) throws Exception {
-        System.out.println("printing args...");
+        System.out.println("runD main printing args...");
         System.out.println(Arrays.deepToString(args));
         String path = "";
         String input = "";
@@ -69,16 +88,32 @@ public class runD {
         }
         File file = new File(input);
         Scanner sc = new Scanner(file);
-        //System.out.println("read");
+        System.out.println("read");
         //sc.useDelimiter("\\n");
         boolean result = false;
         while(sc.hasNext()){
-            DTMReader r = new DTMReader(path);
-            String read = sc.next();
-            r.readFile();
-            r.buildTM();
-            DTM DTM = r.getTM();
-            result = DTM.read(read);
+            if(type.equals(dtm)){
+                System.out.println("we are in d zone");
+                DTMReader r = new DTMReader(path);
+                String read = sc.next();
+                r.readFile();
+                r.buildTM();
+                DTM DTM = r.getTM();
+                result = DTM.read(read);
+            }
+            else{
+                System.out.println("we are in nd zone");
+                NDTMReader r = new NDTMReader(path);
+                r.setFilePath(path);
+                String read = sc.next();
+                r.readFile();
+                System.out.println("print states");
+                System.out.println(Arrays.deepToString(r.state));
+                r.buildTM();
+                NDTM dtm = r.getNtm();
+                result = dtm.read(read);
+            }
+
 
         }
         //path = "testData/t4.txt";

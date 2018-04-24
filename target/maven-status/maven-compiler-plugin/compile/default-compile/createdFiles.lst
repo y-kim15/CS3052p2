@@ -1,8 +1,7 @@
 turingmachine/DTMReader.class
-turingmachine/runND.class
+turingmachine/NDTMReader.class
 turingmachine/DTM.class
 turingmachine/NDTM.class
-turingmachine/NDTMReader.class
 turingmachine/runD.class
 turingmachine/Reader.class
 turingmachine/Node.class
