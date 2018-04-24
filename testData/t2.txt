@@ -1,4 +1,4 @@
-states 19
+states 20
 s0
 s1
 s2
@@ -17,7 +17,8 @@ s14
 s15
 s16
 s17
-s18 +
+s18
+s19 +
 alphabet 5 0 1 # X *
 s0 0 s1 _ R
 s0 1 s2 _ R
@@ -60,14 +61,16 @@ s11 _ s12 _ R
 s12 0 s0 0 S
 s12 1 s0 1 S
 s12 # s13 # R
-s13 X s13 X R
-s13 0 s6 X R
-s13 1 s8 X R
-s13 * s14 X R
-s13 # s16 # R
-s14 # s15 # R
-s15 X s15 X R
-s15 1 s17 X R
+s13 X s14 X R
+s13 * s5 X R
+s14 X s14 X R
+s14 * s15 X R
+s14 # s16 # R
+s14 0 s6 X R
+s14 1 s8 X R
+s15 # s17 # R
 s16 X s16 X R
-s16 _ s18 _ S
-s17 _ s18 _ S
+s16 _ s19 _ S
+s17 X s17 X R
+s17 1 s18 X R
+s18 _ s19 _ S

@@ -17,25 +17,26 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
 public class PalindromeTest {
-    private static String TMDescriptionFile = "testData/t4.txt";
-    private static String inputFile = "./t4_in.txt";
-    private static String outputFile = "./t4_output.txt";
+    private static String TMDescriptionFile = "testData/t2.txt";
+    private static String inputFile = "./t2_in.txt";
+    private static String outputFile = "./t2_output.txt";
     private static FileWriter writer;
     private static List<String> inputBuffer = new ArrayList<String>();
     private static long totalTime = 0;
     private static int count = 0;
-    private static int repeat = 2;
-    private static int min = 10;
-    private static int max = 10;
-    private static int step = 10;
+    private static int repeat = 1;
+    private static int min = 3;
+    private static int max = 5;
+    private static int step = 1;
     @Parameterized.Parameters()
     public static Iterable<Object[]> data()throws IOException {
 
-        return Utils.getParamsByConditions(3, true, min,max,repeat, step);
+        return Utils.getParamsByConditions(2, true, min,max,repeat, step);
     }
 
     private String input;
@@ -81,13 +82,16 @@ public class PalindromeTest {
         String[] args = {TMDescriptionFile, inputFile};
         System.out.println("input is " + input);
         long startTime = System.nanoTime();
-        runtm.main(args);
+        boolean result = runtm.runTm(TMDescriptionFile, inputFile);
         long endTime   = System.nanoTime();
         long time = (endTime - startTime)/100000;
         totalTime += time;
         count++;
-        //if(result) System.out.println("PASS");
-        //else System.out.println("FAIL");
+        if(result) System.out.println("PASS");
+        else System.out.println("FAIL");
+        assertEquals(result, correct);
+
+
 
     }
 

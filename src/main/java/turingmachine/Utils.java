@@ -84,15 +84,55 @@ public class Utils {
         return sb.toString();
     }
 
+    public static String sum(String s1, String s2){
+        int len;
+        if(s1.length() >= s2.length()) len = s1.length();
+        else len = s2.length();
+        String sum = "";
+        StringBuilder sb = new StringBuilder(sum);
+        boolean carry = false;
+        for(int i=0; i<len; i++){
+            int n1; int n2;
+            if(s1.length() <= i){
+                n1 = 0;
+            }
+            else n1 = Integer.parseInt(Character.toString(s1.charAt(i)));
+            if(s2.length() <= i){
+                n2 = 0;
+            }
+            else n2 = Integer.parseInt(Character.toString(s2.charAt(i)));
+            int plus = n1 + n2;
+
+            if(carry){
+                plus++;
+                carry = false;
+            }
+            if(plus == 3){
+                plus = 1;
+                carry = true;
+            }
+            else if(plus == 2){
+                plus = 0;
+                carry = true;
+            }
+            sb.append(Integer.toString(plus));
+
+        }
+        System.out.println("made sum is " + sb.toString());
+        return sb.toString();
+    }
+
+
+
     // length denote length of one binary word (at most with min 1)
     public static String generateBinaryForm(boolean correct, int length) {
         Random r = new Random(r2.nextInt());
         String w1 = getBinary(length, r.nextInt());
         String w2 = getBinary(length, r.nextInt());
-        int n1 = Integer.parseInt(w1, 2);
-        int n2 = Integer.parseInt(w2, 2);
-        int sum = n1+n2;
-        if(!correct) {
+        //int n1 = Integer.parseInt(w1, 2);
+        //int n2 = Integer.parseInt(w2, 2);
+        //int sum = n1+n2;
+        /*if(!correct) {
 
             // 0: w1+1, 1: w2-1, 2: w3+1, 3: #
             int errorType = r.nextInt(3);
@@ -108,11 +148,13 @@ public class Utils {
             }
         }
         String w3 = Integer.toString(sum);
+        */
         String p = "";
+        String  w3 = sum(w1, w2);
         if(correct) {
-            p = Integer.toString(n1) + "#" + Integer.toString(n2) + "#" + w3;
+            p = w1 + "#" + w2 + "#" + w3;
         }
-        else{
+        /*else{
             int errorType = r.nextInt(6);
             switch (errorType) {
                 case 0:  p = Integer.toString(n1) + Integer.toString(n2) + "#" + w3;
@@ -138,7 +180,7 @@ public class Utils {
                         break; // complete shuffle
             }
 
-        }
+        }*/
         return p;
     }
     public static String getEqualBinary(int length){
@@ -248,7 +290,7 @@ public class Utils {
             for(int o=0; o<nEach; o++){
                 Object[] ob = new Object[2];
                 switch (type){
-                    case 0: if(correct) ob[0]= generatePalindrome(correct, i);
+                    case 1: if(correct) ob[0]= generatePalindrome(correct, i);
 
                             else {
                                 boolean which = r5.nextBoolean();
@@ -256,21 +298,21 @@ public class Utils {
                                 ob[1] = which;
                             }
                             break;
-                    case 1: if(correct) ob[0] = generateBinaryForm(correct, i);
+                    case 2: if(correct) ob[0] = generateBinaryForm(correct, i);
                              else {
                                 boolean which = r5.nextBoolean();
                                 ob[0] = generateBinaryForm(which, i);
                                 ob[1] = which;
                             }
                             break;
-                    case 2: if(correct) ob[0] = generateEqualBinary(correct, i);
+                    case 3: if(correct) ob[0] = generateEqualBinary(correct, i);
                             else {
                                 boolean which = r5.nextBoolean();
                                 ob[0] = generateEqualBinary(which, i);
                                 ob[1] = which;
                             }
                             break;
-                    case 3: if(correct) ob[0] = generateAlphabetWord(correct, i);
+                    case 4: if(correct) ob[0] = generateAlphabetWord(correct, i);
                             else {
                                 boolean which = r5.nextBoolean();
                                 ob[0] = generateAlphabetWord(which, i);
@@ -309,6 +351,18 @@ public class Utils {
             System.out.println("Failed to write input line to CSV");
         }
 
+    }
+
+    public static int getDirection(String dir){
+        if(dir.equals("L")){
+            return -1;
+        }
+        else if(dir.equals("R")){
+            return 1;
+        }
+        else{
+            return 0;
+        }
     }
 
 }

@@ -6,16 +6,22 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class runtm {
-    public static boolean runTm(String TMDescription, String input) throws Exception {
+    public static boolean runTm(String path, String inputFile) throws Exception {
         TMReader r = new TMReader();
-        String path=TMDescription;
-        boolean result = false;
         try{
-            r = new TMReader(path);
-            r.readFile();
-            TM tm = r.getTM();
-            result = tm.read(input);
-            return result;
+            File file = new File(inputFile);
+            Scanner sc = new Scanner(file);
+            //System.out.println("read");
+            //sc.useDelimiter("\\n");
+            boolean result = false;
+            if(sc.hasNext()) {
+                r = new TMReader(path);
+                String read = sc.next();
+                r.readFile();
+                TM tm = r.getTM();
+                result = tm.read(read);
+                return result;
+            }
 
         }
         catch (FileNotFoundException e){
@@ -51,8 +57,12 @@ public class runtm {
         //sc.useDelimiter("\\n");
         boolean result = false;
         while(sc.hasNext()){
+            TMReader r = new TMReader(path);
             String read = sc.next();
-            result = runTm(path, read);
+            r.readFile();
+            TM tm = r.getTM();
+            result = tm.read(read);
+
         }
         //path = "testData/t4.txt";
         //input = "aaabbbbbbbccccccccccccccccccccc";

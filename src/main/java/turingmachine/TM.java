@@ -41,17 +41,7 @@ public class TM {
         transition.put(current, new Pair<Tuple, String>(next, trans[4]));
     }
 
-    public int getDirection(String dir){
-        if(dir.equals("L")){
-            return -1;
-        }
-        else if(dir.equals("R")){
-            return 1;
-        }
-        else{
-            return 0;
-        }
-    }
+
     public boolean move(String state, String in){
         //System.out.println("current state is " + state + " current read is " + in);
         //System.out.println("current head index is " + head);
@@ -64,7 +54,7 @@ public class TM {
         }
         Pair<Tuple,String> next = transition.get(read);
         Tuple tuple = next.getKey();
-        int move = getDirection(next.getValue());
+        int move = Utils.getDirection(next.getValue());
         //System.out.println("movement is " + next.getValue() + " in no is " + move);
         String nextState = tuple.getState();
         String toWrite = tuple.getAlphabet();
@@ -112,7 +102,7 @@ public class TM {
             }
             Pair<Tuple,String> next = transition.get(read);
             Tuple tuple = next.getKey();
-            int move = getDirection(next.getValue());
+            int move = Utils.getDirection(next.getValue());
             //System.out.println("movement is " + next.getValue() + " in no is " + move);
             String nextState = tuple.getState();
             String toWrite = tuple.getAlphabet();
