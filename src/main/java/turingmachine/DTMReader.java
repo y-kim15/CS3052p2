@@ -33,7 +33,7 @@ public class DTMReader extends Reader {
 
             while (sc.hasNext()) {
                 String read = sc.next();
-                //System.out.println("read: " + read);
+                System.out.println("read: " + read);
                 String[] line = read.split("\\s");
                 //System.out.println("i: " + i);
                 if (i == 0) {
@@ -106,6 +106,7 @@ public class DTMReader extends Reader {
 
                         if (!st.contains(state1) || !st.contains(state2) || !al.contains(input1) || !al.contains(input2)
                                 || !getDirections().contains(dir) || dtm.checkTransition(state1, input1)) {
+                            System.out.println("error here");
                             setError(3);
                             throw new NumberFormatException();
                         }

@@ -151,8 +151,35 @@ public class Utils {
         */
         String p = "";
         String  w3 = sum(w1, w2);
+        System.out.println(w3);
         if(correct) {
             p = w1 + "#" + w2 + "#" + w3;
+        }
+        else{
+            int errorType = r.nextInt(6);
+            switch(errorType){
+                case 0: p = w1 + w2 + "#" + w3;
+                    break;
+                case 1: p = w1 + "#" + w2 + w3;
+                    break;
+                case 2: p = w1 + "##" + w3;
+                    break;
+                case 3: p = w1 + "#" + w2 + "#";
+                    break;
+                case 4: p = "#" + w2 + "#" + w3;
+                    break;
+                case 5: p = w1 + "#" + w2 + "#" + w3;
+                        List<Integer> list = IntStream.rangeClosed(0, p.length()-1)
+                                .boxed().collect(Collectors.toList());
+                    Collections.shuffle(list);
+                    String shuffled = "";
+                    StringBuilder sb3 = new StringBuilder(shuffled);
+                    for(int i=0; i < p.length(); i++){
+                        sb3.append(p.charAt(list.get(i)));
+                    }
+                    p = sb3.toString();
+                    break; // complete shuffle
+            }
         }
         /*else{
             int errorType = r.nextInt(6);

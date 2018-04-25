@@ -58,7 +58,19 @@
 
                 </configuration>
             </plugin>
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <systemPropertyVariables>
+                        <propertyName>problem</propertyName>
+                        <buildDirectory>${project.build.directory}</buildDirectory>
+                        <propertyName>errors</propertyName>
+                        <buildDirectory>${project.build.directory}</buildDirectory>
+                    </systemPropertyVariables>
+                </configuration>
+                <version>2.20.1</version>
+            </plugin>
         </plugins>
     </build>
 

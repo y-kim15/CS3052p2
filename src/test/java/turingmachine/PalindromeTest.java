@@ -30,8 +30,24 @@ public class PalindromeTest {
     private static int step = 1;
     @Parameterized.Parameters()
     public static Iterable<Object[]> data()throws IOException {
-
-        return Utils.getParamsByConditions(1, true, min,max,repeat, step);
+        String problem = System.getProperty("problem");
+        String errors = System.getProperty("errors");
+        int type = 1;
+        boolean correct = true;
+        if(problem != null) {
+            type = Integer.parseInt(problem);
+            TMDescriptionFile = "testData/t" + problem + ".txt";
+            inputFile = "./t" + problem + "_in.txt";
+            outputFile = "./t" + problem + "_output.txt";
+            System.out.println("problem value is found");
+        }
+        if(errors != null){
+            if(errors.equals("f")) correct = false;
+        }
+        else{
+            System.out.println("error term not found");
+        }
+        return Utils.getParamsByConditions(type, correct, min,max,repeat, step);
     }
 
     private String input;

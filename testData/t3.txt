@@ -34,7 +34,6 @@ s5 X s5 X L
 s5 _ s6 _ R
 s6 X s6 X R
 s6 0 s10 0 R
-s6 1 s2 X R
 s6 1 s8 X S
 s6 _ s11 _ S
 s7 1 s7 1 L
