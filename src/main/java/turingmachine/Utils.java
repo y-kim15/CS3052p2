@@ -118,7 +118,8 @@ public class Utils {
             sb.append(Integer.toString(plus));
 
         }
-        System.out.println("made sum is " + sb.toString());
+        if(carry) sb.append(Integer.toString(1));
+        //System.out.println("made sum is " + sb.toString());
         return sb.toString();
     }
 
@@ -151,7 +152,7 @@ public class Utils {
         */
         String p = "";
         String  w3 = sum(w1, w2);
-        System.out.println(w3);
+        //System.out.println(w3);
         if(correct) {
             p = w1 + "#" + w2 + "#" + w3;
         }

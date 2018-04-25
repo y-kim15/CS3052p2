@@ -20,8 +20,8 @@ public class NDTM extends TM{
         head = 0;
         addressHead = 0;
         currentSize = FIRSTSIZE;
-        tape = new ArrayList<>(Collections.nCopies(currentSize, "_"));
-        addressTape = new ArrayList<>(Collections.nCopies(currentSize, "_"));
+        //tape = new ArrayList<>(Collections.nCopies(currentSize, "_"));
+        //addressTape = new ArrayList<>(Collections.nCopies(currentSize, "_"));
 
     }
 
@@ -84,6 +84,7 @@ public class NDTM extends TM{
             }
             if (!tree.containsKey(read)) {
                 if(!getTapeAlph().contains(symbol)){
+                    System.out.println("it doesn't contain symbol");
                     addressHead = 0;
                     addressTape.set(addressHead, Integer.toString(current.getChildren().size()));
                     return false;
@@ -145,9 +146,10 @@ public class NDTM extends TM{
                 if (head == 0 && move == -1) move = 0;
                 head += move;
 
-                if (tape.get(head) == null) {
+                if (head+1 == tape.size()){//tape.get(head) == null) {
                     for (int i = 0; i < FIRSTSIZE; i++) {
-                        tape.set(head + i, "_");
+                        //tape.set(head + i, "_");
+                        tape.add("_");
                     }
                     currentSize += FIRSTSIZE;
                 }
@@ -175,6 +177,9 @@ public class NDTM extends TM{
         //System.out.println(Arrays.deepToString(nums));
         //getPossibleStrings(input.length(), nums, "");
         addressHead = 0;
+        currentSize = FIRSTSIZE + input.length();
+        tape = new ArrayList<>(Collections.nCopies(currentSize, "_"));
+        addressTape = new ArrayList<>(Collections.nCopies(currentSize, "_"));
         //for(int i=0; i<num; i++){
         for(int j=0; j<input.length(); j++){
             tape.set(j, Character.toString(input.charAt(j)));

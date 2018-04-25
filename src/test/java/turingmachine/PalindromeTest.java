@@ -25,9 +25,10 @@ public class PalindromeTest {
     private static long totalTime = 0;
     private static int count = 0;
     private static int repeat = 10;
-    private static int min = 100;
-    private static int max = 1000;
-    private static int step = 100;
+    private static int min = 5;
+    private static int max = 5;
+    private static int step = 5;
+    private static boolean form = true;
     @Parameterized.Parameters()
     public static Iterable<Object[]> data()throws IOException {
         String problem = System.getProperty("problem");
@@ -46,6 +47,16 @@ public class PalindromeTest {
         }
         else{
             System.out.println("error term not found");
+        }
+        String det = System.getProperty("type");
+        if(det != null){
+            if(det.equals("nd")){
+                form = false;
+                TMDescriptionFile = "testData/tm3.txt";
+                inputFile = "./tm3_in.txt";
+                outputFile = "./tm3_output.txt";
+                type = 1;
+            }
         }
         return Utils.getParamsByConditions(type, correct, min,max,repeat, step);
     }
@@ -92,10 +103,12 @@ public class PalindromeTest {
 
         String[] args = {TMDescriptionFile, inputFile};
         System.out.println("input is " + input);
-        System.out.println("D file is " + TMDescriptionFile);
-        System.out.println("input file is " + inputFile);
+        //System.out.println("D file is " + TMDescriptionFile);
+        //System.out.println("input file is " + inputFile);
         long startTime = System.nanoTime();
-        boolean result = runD.runTm(TMDescriptionFile, inputFile);
+        boolean result;
+        if(form) result = runD.runTm(TMDescriptionFile, inputFile);
+        else result = runD.runNtm(TMDescriptionFile, inputFile);
         long endTime   = System.nanoTime();
         long time = (endTime - startTime)/100000;
         totalTime += time;
@@ -137,6 +150,8 @@ public class PalindromeTest {
     public static void tidy()throws IOException{
         try{
             writer.close();
+            System.out.println("D file is " + TMDescriptionFile);
+            System.out.println("input file is " + inputFile);
         }
         catch (IOException e){
             e.getMessage();

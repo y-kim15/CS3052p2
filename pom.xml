@@ -67,6 +67,8 @@
                         <buildDirectory>${project.build.directory}</buildDirectory>
                         <propertyName>errors</propertyName>
                         <buildDirectory>${project.build.directory}</buildDirectory>
+                        <propertyName>type</propertyName>
+                        <buildDirectory>${project.build.directory}</buildDirectory>
                     </systemPropertyVariables>
                 </configuration>
                 <version>2.20.1</version>
