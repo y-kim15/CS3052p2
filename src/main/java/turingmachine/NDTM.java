@@ -128,7 +128,7 @@ public class NDTM extends TM{
                 System.out.println("root is null");
                 root = new Node<>(state, symbol);
                 current = root;
-                addressTape.add(addressHead++, "1");
+                addressTape.set(addressHead++, "1");
                 //addressTape.add(addressHead++, "#");
             }
             if (!tree.containsKey(read)) {
@@ -139,6 +139,7 @@ public class NDTM extends TM{
                     current = current.getParent();
                     //addressTape.set(--addressHead, "_");
                     tape.set(head, current.getReadSymbol());
+                    currentState = current.getReadState();
                 }
                 addressHead--; //keep the value
                 //moving up to parent
@@ -162,8 +163,9 @@ public class NDTM extends TM{
                     int value = Integer.parseInt(addressTape.get(addressHead));
                     if (value >= children.size()) {
                         System.out.println("no more children to test on");
-                        current = current.getParent();//newN.getParent();//node.getParent();
+                        //current = current.getParent();//newN.getParent();//node.getParent();
                         //addressTape.set(addressHead, "_");
+                        System.out.println("current has " + current.getReadState() + " and symbol " + current.getReadSymbol());
                         addressHead--;
                         return false;
                     } else if (value >= 0 && value < children.size()) {
@@ -193,9 +195,10 @@ public class NDTM extends TM{
                     }
                     currentSize += FIRSTSIZE;
                 }
-                if(addressTape.get(addressHead) == null){
+                System.out.println("size is " + addressTape.size() + " and head is at " + addressHead);
+                if(addressHead == addressTape.size()){
                     for (int i = 0; i < FIRSTSIZE; i++) {
-                        addressTape.set(addressHead + i, "_");
+                        addressTape.add("_");
                     }
                 }
                 state = currentState;
@@ -225,7 +228,10 @@ public class NDTM extends TM{
             accept = test(currentState, tape.get(head));
             if(!accept) {
                 System.out.println("!accept");
+                if(addressHead < 0 ) return false; // case when completely invalid alphabet encountered
                 String i = addressTape.get(addressHead);
+                System.out.println("addressHead is at index " + addressHead);
+                System.out.println("size of children is " + current.getChildren().size() + " and  i is "+ i);
                 if(current.getChildren().size() == Integer.parseInt(i) && addressHead == 0){
                     return false;
                 }

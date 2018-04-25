@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cac1a202-7305-4df2-a13d-dd55aeac5256" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/turingmachine/Node1.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/final-report.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/individual_report.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/project-code-future-development (1).zip" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/turingmachine/NDTM.class" afterPath="$PROJECT_DIR$/target/classes/turingmachine/NDTM.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/turingmachine/NDTMReader.class" afterPath="$PROJECT_DIR$/target/classes/turingmachine/NDTMReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/turingmachine/Node.class" afterPath="$PROJECT_DIR$/target/classes/turingmachine/Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/turingmachine/NDTM.java" afterPath="$PROJECT_DIR$/src/main/java/turingmachine/NDTM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/turingmachine/NDTMReader.java" afterPath="$PROJECT_DIR$/src/main/java/turingmachine/NDTMReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/turingmachine/Node.java" afterPath="$PROJECT_DIR$/src/main/java/turingmachine/Node.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tm2_in.txt" afterPath="$PROJECT_DIR$/tm2_in.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -35,6 +20,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1560">
               <caret line="39" column="20" lean-forward="true" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DTM.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/turingmachine/DTM.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="514">
+              <caret line="67" column="13" lean-forward="true" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -79,8 +74,8 @@
       <file leaf-file-name="NDTM.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/turingmachine/NDTM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="196" column="39" lean-forward="false" selection-start-line="196" selection-start-column="39" selection-end-line="196" selection-end-column="39" />
+            <state relative-caret-position="1322">
+              <caret line="245" column="63" lean-forward="true" selection-start-line="245" selection-start-column="63" selection-end-line="245" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -114,18 +109,6 @@
             <state relative-caret-position="913">
               <caret line="110" column="28" lean-forward="false" selection-start-line="110" selection-start-column="28" selection-end-line="110" selection-end-column="28" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/turingmachine/Utils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="170" column="53" lean-forward="false" selection-start-line="170" selection-start-column="53" selection-end-line="170" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -207,7 +190,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-14" />
     <option name="width" value="2469" />
     <option name="height" value="1814" />
@@ -509,7 +492,7 @@
       <workItem from="1523954253138" duration="19980000" />
       <workItem from="1524557527199" duration="4850000" />
       <workItem from="1524573650153" duration="12907000" />
-      <workItem from="1524598579869" duration="22913000" />
+      <workItem from="1524598579869" duration="26153000" />
     </task>
     <servers />
   </component>
@@ -546,10 +529,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112145000" />
+    <option name="totallyTimeSpent" value="115385000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-16" y="-16" width="3232" height="1832" extended-state="7" />
+    <frame x="-16" y="-16" width="3232" height="1832" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -843,16 +826,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/turingmachine/DTM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="932">
-          <caret line="81" column="9" lean-forward="true" selection-start-line="79" selection-start-column="8" selection-end-line="81" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testData/t3.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-249">
@@ -958,10 +931,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/turingmachine/DTM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="67" column="13" lean-forward="true" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/turingmachine/NDTM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="196" column="39" lean-forward="false" selection-start-line="196" selection-start-column="39" selection-end-line="196" selection-end-column="39" />
+        <state relative-caret-position="1322">
+          <caret line="245" column="63" lean-forward="true" selection-start-line="245" selection-start-column="63" selection-end-line="245" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
