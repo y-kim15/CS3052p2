@@ -33,7 +33,7 @@ public class DTMReader extends Reader {
 
             while (sc.hasNext()) {
                 String read = sc.next();
-                System.out.println("read: " + read);
+                //System.out.println("read: " + read);
                 String[] line = read.split("\\s");
                 //System.out.println("i: " + i);
                 if (i == 0) {

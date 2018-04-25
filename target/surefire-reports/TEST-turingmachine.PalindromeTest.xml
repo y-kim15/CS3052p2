@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="turingmachine.PalindromeTest" time="0.817" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="turingmachine.PalindromeTest" time="8.349" tests="100" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -8,10 +8,10 @@
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.class.path" value="C:\Users\yk30\Documents\CS3052p2\target\test-classes;C:\Users\yk30\Documents\CS3052p2\target\classes;C:\Users\yk30\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\yk30\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\yk30\.m2\repository\pl\pragmatists\JUnitParams\1.0.5\JUnitParams-1.0.5.jar;"/>
+    <property name="type" value="1"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
-    <property name="problem" value="3"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="user.timezone" value=""/>
     <property name="java.vm.specification.version" value="1.8"/>
@@ -19,7 +19,7 @@
     <property name="user.country" value="GB"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\yk30\AppData\Local\Temp\surefire2871038204903864688\surefirebooter60363992730772063.jar C:\Users\yk30\AppData\Local\Temp\surefire2871038204903864688 2018-04-25T11-56-02_064-jvmRun1 surefire7527963562652181971tmp surefire_01362025939318858348tmp"/>
+    <property name="sun.java.command" value="C:\Users\yk30\AppData\Local\Temp\surefire3212611199633670330\surefirebooter5502002567481825623.jar C:\Users\yk30\AppData\Local\Temp\surefire3212611199633670330 2018-04-25T23-33-31_834-jvmRun1 surefire3212894388090489109tmp surefire_0208698030277153459tmp"/>
     <property name="surefire.test.class.path" value="C:\Users\yk30\Documents\CS3052p2\target\test-classes;C:\Users\yk30\Documents\CS3052p2\target\classes;C:\Users\yk30\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\yk30\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\yk30\.m2\repository\pl\pragmatists\JUnitParams\1.0.5\JUnitParams-1.0.5.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\yk30"/>
@@ -32,7 +32,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\yk30\AppData\Local\Temp\surefire2871038204903864688\surefirebooter60363992730772063.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\yk30\AppData\Local\Temp\surefire3212611199633670330\surefirebooter5502002567481825623.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_131\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -63,7 +63,104 @@
     <property name="java.class.version" value="52.0"/>
     <property name="buildDirectory" value="C:\Users\yk30\Documents\CS3052p2\target"/>
   </properties>
-  <testcase name="test[0]" classname="turingmachine.PalindromeTest" time="0.331"/>
-  <testcase name="test[1]" classname="turingmachine.PalindromeTest" time="0.143"/>
-  <testcase name="test[2]" classname="turingmachine.PalindromeTest" time="0.155"/>
+  <testcase name="test[0]" classname="turingmachine.PalindromeTest" time="0.125"/>
+  <testcase name="test[1]" classname="turingmachine.PalindromeTest" time="0.075"/>
+  <testcase name="test[2]" classname="turingmachine.PalindromeTest" time="0.075"/>
+  <testcase name="test[3]" classname="turingmachine.PalindromeTest" time="0.064"/>
+  <testcase name="test[4]" classname="turingmachine.PalindromeTest" time="0.04"/>
+  <testcase name="test[5]" classname="turingmachine.PalindromeTest" time="0.042"/>
+  <testcase name="test[6]" classname="turingmachine.PalindromeTest" time="0.051"/>
+  <testcase name="test[7]" classname="turingmachine.PalindromeTest" time="0.041"/>
+  <testcase name="test[8]" classname="turingmachine.PalindromeTest" time="0.02"/>
+  <testcase name="test[9]" classname="turingmachine.PalindromeTest" time="0.05"/>
+  <testcase name="test[10]" classname="turingmachine.PalindromeTest" time="0.021"/>
+  <testcase name="test[11]" classname="turingmachine.PalindromeTest" time="0.021"/>
+  <testcase name="test[12]" classname="turingmachine.PalindromeTest" time="0.022"/>
+  <testcase name="test[13]" classname="turingmachine.PalindromeTest" time="0.042"/>
+  <testcase name="test[14]" classname="turingmachine.PalindromeTest" time="0.023"/>
+  <testcase name="test[15]" classname="turingmachine.PalindromeTest" time="0.024"/>
+  <testcase name="test[16]" classname="turingmachine.PalindromeTest" time="0.036"/>
+  <testcase name="test[17]" classname="turingmachine.PalindromeTest" time="0.034"/>
+  <testcase name="test[18]" classname="turingmachine.PalindromeTest" time="0.026"/>
+  <testcase name="test[19]" classname="turingmachine.PalindromeTest" time="0.041"/>
+  <testcase name="test[20]" classname="turingmachine.PalindromeTest" time="0.022"/>
+  <testcase name="test[21]" classname="turingmachine.PalindromeTest" time="0.035"/>
+  <testcase name="test[22]" classname="turingmachine.PalindromeTest" time="0.052"/>
+  <testcase name="test[23]" classname="turingmachine.PalindromeTest" time="0.035"/>
+  <testcase name="test[24]" classname="turingmachine.PalindromeTest" time="0.036"/>
+  <testcase name="test[25]" classname="turingmachine.PalindromeTest" time="0.042"/>
+  <testcase name="test[26]" classname="turingmachine.PalindromeTest" time="0.037"/>
+  <testcase name="test[27]" classname="turingmachine.PalindromeTest" time="0.038"/>
+  <testcase name="test[28]" classname="turingmachine.PalindromeTest" time="0.042"/>
+  <testcase name="test[29]" classname="turingmachine.PalindromeTest" time="0.051"/>
+  <testcase name="test[30]" classname="turingmachine.PalindromeTest" time="0.051"/>
+  <testcase name="test[31]" classname="turingmachine.PalindromeTest" time="0.051"/>
+  <testcase name="test[32]" classname="turingmachine.PalindromeTest" time="0.05"/>
+  <testcase name="test[33]" classname="turingmachine.PalindromeTest" time="0.044"/>
+  <testcase name="test[34]" classname="turingmachine.PalindromeTest" time="0.043"/>
+  <testcase name="test[35]" classname="turingmachine.PalindromeTest" time="0.05"/>
+  <testcase name="test[36]" classname="turingmachine.PalindromeTest" time="0.033"/>
+  <testcase name="test[37]" classname="turingmachine.PalindromeTest" time="0.035"/>
+  <testcase name="test[38]" classname="turingmachine.PalindromeTest" time="0.047"/>
+  <testcase name="test[39]" classname="turingmachine.PalindromeTest" time="0.041"/>
+  <testcase name="test[40]" classname="turingmachine.PalindromeTest" time="0.052"/>
+  <testcase name="test[41]" classname="turingmachine.PalindromeTest" time="0.049"/>
+  <testcase name="test[42]" classname="turingmachine.PalindromeTest" time="0.051"/>
+  <testcase name="test[43]" classname="turingmachine.PalindromeTest" time="0.055"/>
+  <testcase name="test[44]" classname="turingmachine.PalindromeTest" time="0.055"/>
+  <testcase name="test[45]" classname="turingmachine.PalindromeTest" time="0.05"/>
+  <testcase name="test[46]" classname="turingmachine.PalindromeTest" time="0.054"/>
+  <testcase name="test[47]" classname="turingmachine.PalindromeTest" time="0.051"/>
+  <testcase name="test[48]" classname="turingmachine.PalindromeTest" time="0.053"/>
+  <testcase name="test[49]" classname="turingmachine.PalindromeTest" time="0.057"/>
+  <testcase name="test[50]" classname="turingmachine.PalindromeTest" time="0.059"/>
+  <testcase name="test[51]" classname="turingmachine.PalindromeTest" time="0.062"/>
+  <testcase name="test[52]" classname="turingmachine.PalindromeTest" time="0.065"/>
+  <testcase name="test[53]" classname="turingmachine.PalindromeTest" time="0.074"/>
+  <testcase name="test[54]" classname="turingmachine.PalindromeTest" time="0.074"/>
+  <testcase name="test[55]" classname="turingmachine.PalindromeTest" time="0.082"/>
+  <testcase name="test[56]" classname="turingmachine.PalindromeTest" time="0.087"/>
+  <testcase name="test[57]" classname="turingmachine.PalindromeTest" time="0.083"/>
+  <testcase name="test[58]" classname="turingmachine.PalindromeTest" time="0.083"/>
+  <testcase name="test[59]" classname="turingmachine.PalindromeTest" time="0.09"/>
+  <testcase name="test[60]" classname="turingmachine.PalindromeTest" time="0.107"/>
+  <testcase name="test[61]" classname="turingmachine.PalindromeTest" time="0.117"/>
+  <testcase name="test[62]" classname="turingmachine.PalindromeTest" time="0.103"/>
+  <testcase name="test[63]" classname="turingmachine.PalindromeTest" time="0.092"/>
+  <testcase name="test[64]" classname="turingmachine.PalindromeTest" time="0.083"/>
+  <testcase name="test[65]" classname="turingmachine.PalindromeTest" time="0.105"/>
+  <testcase name="test[66]" classname="turingmachine.PalindromeTest" time="0.079"/>
+  <testcase name="test[67]" classname="turingmachine.PalindromeTest" time="0.127"/>
+  <testcase name="test[68]" classname="turingmachine.PalindromeTest" time="0.119"/>
+  <testcase name="test[69]" classname="turingmachine.PalindromeTest" time="0.094"/>
+  <testcase name="test[70]" classname="turingmachine.PalindromeTest" time="0.092"/>
+  <testcase name="test[71]" classname="turingmachine.PalindromeTest" time="0.088"/>
+  <testcase name="test[72]" classname="turingmachine.PalindromeTest" time="0.106"/>
+  <testcase name="test[73]" classname="turingmachine.PalindromeTest" time="0.093"/>
+  <testcase name="test[74]" classname="turingmachine.PalindromeTest" time="0.117"/>
+  <testcase name="test[75]" classname="turingmachine.PalindromeTest" time="0.139"/>
+  <testcase name="test[76]" classname="turingmachine.PalindromeTest" time="0.685"/>
+  <testcase name="test[77]" classname="turingmachine.PalindromeTest" time="0.15"/>
+  <testcase name="test[78]" classname="turingmachine.PalindromeTest" time="0.101"/>
+  <testcase name="test[79]" classname="turingmachine.PalindromeTest" time="0.069"/>
+  <testcase name="test[80]" classname="turingmachine.PalindromeTest" time="0.084"/>
+  <testcase name="test[81]" classname="turingmachine.PalindromeTest" time="0.087"/>
+  <testcase name="test[82]" classname="turingmachine.PalindromeTest" time="0.088"/>
+  <testcase name="test[83]" classname="turingmachine.PalindromeTest" time="0.095"/>
+  <testcase name="test[84]" classname="turingmachine.PalindromeTest" time="0.089"/>
+  <testcase name="test[85]" classname="turingmachine.PalindromeTest" time="0.09"/>
+  <testcase name="test[86]" classname="turingmachine.PalindromeTest" time="0.169"/>
+  <testcase name="test[87]" classname="turingmachine.PalindromeTest" time="0.092"/>
+  <testcase name="test[88]" classname="turingmachine.PalindromeTest" time="0.091"/>
+  <testcase name="test[89]" classname="turingmachine.PalindromeTest" time="0.103"/>
+  <testcase name="test[90]" classname="turingmachine.PalindromeTest" time="0.135"/>
+  <testcase name="test[91]" classname="turingmachine.PalindromeTest" time="0.161"/>
+  <testcase name="test[92]" classname="turingmachine.PalindromeTest" time="0.127"/>
+  <testcase name="test[93]" classname="turingmachine.PalindromeTest" time="0.128"/>
+  <testcase name="test[94]" classname="turingmachine.PalindromeTest" time="0.14"/>
+  <testcase name="test[95]" classname="turingmachine.PalindromeTest" time="0.148"/>
+  <testcase name="test[96]" classname="turingmachine.PalindromeTest" time="0.125"/>
+  <testcase name="test[97]" classname="turingmachine.PalindromeTest" time="0.112"/>
+  <testcase name="test[98]" classname="turingmachine.PalindromeTest" time="0.129"/>
+  <testcase name="test[99]" classname="turingmachine.PalindromeTest" time="0.118"/>
 </testsuite>

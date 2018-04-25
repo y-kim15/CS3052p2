@@ -69,55 +69,6 @@ public class NDTM extends TM{
         }
     }
 
-    public boolean process(String state, String symbol){
-        boolean accept = false;
-        int count = 0;
-        while(!accept){
-            System.out.println("state " + state +  " and symbol " + symbol);
-            Tuple read = new Tuple(state, symbol);
-            if(!tree.containsKey(read)){
-                System.out.println("Reject, no such transition");
-                break;
-            }
-            Node1 current = new Node1("","");//= tree.get(read);
-            if(count == input.length()){
-                System.out.println("went over number of transitions possible");
-                break;
-            }
-            int childOrder = Integer.parseInt(addressTape.get(addressHead++));
-            List<Node1> children = current.getChildren();
-            System.out.println("current has " + children.size() + "children and order is " + childOrder);
-            if(children.size() < childOrder){
-                System.out.println("fewer number of children, invalid");
-                break;}
-            Node1 child = children.get(childOrder-1);
-            String nextState = child.getState();
-            String toWrite = child.getSymbol();
-            int move = Utils.getDirection(child.getDir());
-            if(getAcceptStates().contains(nextState)){
-                System.out.println("accept");
-                accept = true;
-                break;
-            }
-
-            currentState = nextState;
-            tape.set(head, toWrite);
-            System.out.println("next state is " + currentState + " and write to head " + toWrite);
-            if(head == 0 && move == -1) move = 0;
-            head += move;
-
-            if(tape.get(head) == null){
-                for(int i=0; i<FIRSTSIZE; i++){
-                    tape.set(head+i, "_");
-                }
-                currentSize += FIRSTSIZE;
-            }
-            state = currentState;
-            symbol = tape.get(head);
-            count++;
-        }
-        return accept;
-    }
     // create a tree from root, given input, check if transition exist, if so add a node
     // level is depth of tree (which level) and order is (ith child?)
     public boolean test(String state, String symbol){
