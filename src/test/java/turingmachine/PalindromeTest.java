@@ -24,10 +24,10 @@ public class PalindromeTest {
     private static List<String> inputBuffer = new ArrayList<String>();
     private static long totalTime = 0;
     private static int count = 0;
-    private static int repeat = 1;
-    private static int min = 3;
-    private static int max = 5;
-    private static int step = 1;
+    private static int repeat = 10;
+    private static int min = 100;
+    private static int max = 1000;
+    private static int step = 100;
     @Parameterized.Parameters()
     public static Iterable<Object[]> data()throws IOException {
         String problem = System.getProperty("problem");

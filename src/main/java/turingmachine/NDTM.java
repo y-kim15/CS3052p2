@@ -132,6 +132,11 @@ public class NDTM extends TM{
                 //addressTape.add(addressHead++, "#");
             }
             if (!tree.containsKey(read)) {
+                if(!getTapeAlph().contains(symbol)){
+                    addressHead = 0;
+                    addressTape.set(addressHead, Integer.toString(current.getChildren().size()));
+                    return false;
+                }
                 System.out.println("can't find the key");
                 current.currentChild = 0;
                 if(addressHead-1 > 0) {
@@ -228,7 +233,7 @@ public class NDTM extends TM{
             accept = test(currentState, tape.get(head));
             if(!accept) {
                 System.out.println("!accept");
-                if(addressHead < 0 ) return false; // case when completely invalid alphabet encountered
+                //if(addressHead < 0 ) return false; // case when completely invalid alphabet encountered
                 String i = addressTape.get(addressHead);
                 System.out.println("addressHead is at index " + addressHead);
                 System.out.println("size of children is " + current.getChildren().size() + " and  i is "+ i);
