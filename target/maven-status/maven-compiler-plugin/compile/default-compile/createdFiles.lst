@@ -4,6 +4,7 @@ turingmachine\NDTMReader.class
 turingmachine\runD.class
 turingmachine\Tuple.class
 turingmachine\Reader.class
+turingmachine\Node1.class
 turingmachine\Utils.class
 turingmachine\NDTM.class
 turingmachine\Node.class

@@ -14,7 +14,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <dtm>testData/t4.txt</dtm>
-        <symbol>t4_in.txt</symbol>
+        <readSymbol>t4_in.txt</readSymbol>
         <type>d</type>
     </properties>
 
@@ -52,7 +52,7 @@
                     <mainClass>turingmachine.runD</mainClass>
                     <arguments>
                         <argument>${dtm}</argument>
-                        <argument>${symbol}</argument>
+                        <argument>${readSymbol}</argument>
                         <argument>${type}</argument>
                     </arguments>
 

@@ -8,9 +8,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class NDTMReader extends Reader {
-    private HashMap<Tuple, Node> tree = new HashMap<>();
+    private HashMap<Tuple, Node<String>> tree = new HashMap<>();
     private NDTM ntm;
     private int maxChild;
+    private Node<String> root;
 
     public NDTMReader(){
         maxChild = 0;
@@ -160,20 +161,21 @@ public class NDTMReader extends Reader {
 
     public void addTransition(String state1, String state2, String input1, String input2, String dir){
         Tuple t = new Tuple(state1, input1);
-        Node child = new Node(state2, input2);
+        Node<String> child = new Node<String>(state2, input2);
         child.setDir(dir);
         if(tree.containsKey(t)){
-            Node parent = tree.get(t);
+            Node<String> parent = tree.get(t);
             child.setParent(parent);
-            parent.addChildNote(child);
+            parent.addChild(child);
             tree.put(t, parent);
         }
         else{
-            Node n = new Node(state1, input1);
+            Node<String> n = new Node<String>(state1, input1);
             child.setParent(n);
-            n.addChildNote(child);
+            n.addChild(child);
             tree.put(t, n);
         }
+
     }
 
     public void buildTM(){
