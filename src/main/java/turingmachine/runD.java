@@ -8,6 +8,8 @@ import java.util.Scanner;
 public class runD {
     public static final String dtm = "d";
     public static final String ntm = "nd";
+    public static int move = 0;
+
     public static boolean runTm(String path, String inputFile) throws Exception {
         DTMReader r = new DTMReader();
         try{
@@ -23,6 +25,7 @@ public class runD {
                 r.buildTM();
                 DTM dtm = r.getTM();
                 result = dtm.read(read);
+                move = dtm.getMoves();
                 return result;
             }
 
@@ -52,6 +55,7 @@ public class runD {
                 r.buildTM();
                 NDTM dtm = r.getNtm();
                 result = dtm.read(read);
+                move = dtm.getMoves();
                 return result;
             }
 
@@ -65,6 +69,8 @@ public class runD {
         }
         return false;
     }
+
+    public static int getMove(){return move;}
 
     public static void main(String[] args) throws Exception {
         System.out.println("runD main printing args...");
@@ -98,8 +104,9 @@ public class runD {
                 String read = sc.next();
                 r.readFile();
                 r.buildTM();
-                DTM DTM = r.getTM();
-                result = DTM.read(read);
+                DTM dtm = r.getTM();
+                result = dtm.read(read);
+                move = dtm.getMoves();
             }
             else{
                 System.out.println("we are in nd zone");
@@ -111,6 +118,7 @@ public class runD {
                 r.buildTM();
                 NDTM dtm = r.getNtm();
                 result = dtm.read(read);
+                move = dtm.getMoves();
             }
 
 

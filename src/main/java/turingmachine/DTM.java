@@ -3,58 +3,64 @@ package turingmachine;
 import javafx.util.Pair;
 
 import java.util.*;
+
+/**
+ * This is an extended class of TM for Deterministic Turing
+ * Machine simulator.
+ */
 public class DTM extends TM {
     private HashMap<Tuple,Pair<Tuple,String>> transition = new HashMap<Tuple, Pair<Tuple, String>>();
 
     public DTM(){
         head =0;
     }
-    public DTM(String[] states, String[] tapeAlph){
-        super(states, tapeAlph);
-        head = 0;
-    }
-
 
     public void addTransition(String[] trans){
         Tuple current = new Tuple(trans[0], trans[1]);
         Tuple next = new Tuple(trans[2], trans[3]);
-        transition.put(current, new Pair<Tuple, String>(next, trans[4]));
+        transition.put(current, new Pair<>(next, trans[4]));
     }
 
+    /**
+     * Checks whether given transition already exists,
+     * required to find any invalid transitions noted in the description file
+     * @param state
+     * @param symbol
+     * @return boolean denoting the existence
+     */
     public boolean checkTransition(String state, String symbol){
         Tuple read = new Tuple(state, symbol);
         return transition.containsKey(read);
     }
 
+    /**
+     * Reads the input through the turing machine until it accepts or rejects.
+     * this is done iteratively.
+     * @param state current state
+     * @param symbol current symbol read from input
+     * @return boolean denoting the result, accept or reject
+     */
     public boolean process(String state, String symbol){
-        //System.out.println("current state is " + state + " current read is " + in);
-        //System.out.println("current head index is " + head);
-        //System.out.println("tape: " + tape.toString());
         boolean accept = false;
         while(!accept){
             Tuple read = new Tuple(state, symbol);
             if(!transition.containsKey(read)){
-                System.out.println("Reject, no such transition");
+                //System.out.println("Reject, no such transition");
                 break;
             }
             Pair<Tuple,String> next = transition.get(read);
             Tuple tuple = next.getKey();
             int move = Utils.getDirection(next.getValue());
-            //System.out.println("movement is " + next.getValue() + " in no is " + move);
             String nextState = tuple.getState();
             String toWrite = tuple.getAlphabet();
-            //System.out.println("next state is " + nextState + " to write is " + toWrite);
-            //Set<String> stateSet = new HashSet<String>(Arrays.asList(states));
-
-            // acceptStates state
-            if(getAcceptStates().contains(nextState)){//stateSet.contains(currentState+"+")){
-                System.out.println("accept");
+            if(getAcceptStates().contains(nextState)){
+                //System.out.println("accept");
                 accept = true;
                 break;
             }
             currentState = nextState;
-                //System.out.println("not acceptStates, write " + toWrite + " to head " + head);
             tape.set(head, toWrite);
+            setMoves(getMoves()+1);
 
             if(head == 0 && move == -1){
                 move = 0;
@@ -72,7 +78,11 @@ public class DTM extends TM {
         return accept;
     }
 
-
+    /**
+     * Reads input ready for processing by adding it to the tape
+     * @param input input string read
+     * @return boolean denoting whether to reject or accept the string
+     */
     public boolean read(String input){
         currentState = getStates()[0];
         currentSize = FIRSTSIZE + input.length();
@@ -80,6 +90,6 @@ public class DTM extends TM {
         for(int i=0; i<input.length(); i++){
             tape.set(i,Character.toString(input.charAt(i)));
         }
-        return process(currentState, tape.get(head)); //read
+        return process(currentState, tape.get(head));
     }
 }

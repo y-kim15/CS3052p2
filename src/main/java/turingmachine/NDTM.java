@@ -1,18 +1,17 @@
 package turingmachine;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
+/**
+ * This is an extended class of TM for Non-deterministic Turing
+ * Machine simulator.
+ */
 public class NDTM extends TM{
-    private String input;
     private List<String> tape;
     private List<String> addressTape;
     private int addressHead;
-    private int maxChild; // maximum number of child nodes of a node
-    private int num; // number of node combination to check
     private Node<String> root;
     private Node<String> current;
-    private int order;
 
     private HashMap<Tuple, Node<String>> tree = new HashMap<>();
 
@@ -20,57 +19,24 @@ public class NDTM extends TM{
         head = 0;
         addressHead = 0;
         currentSize = FIRSTSIZE;
-        //tape = new ArrayList<>(Collections.nCopies(currentSize, "_"));
-        //addressTape = new ArrayList<>(Collections.nCopies(currentSize, "_"));
-
     }
 
-
-    public void setMaxChild(int maxChild){this.maxChild = maxChild;}
 
     public void setTree(HashMap<Tuple, Node<String>> tree) {
         this.tree = tree;
     }
 
-    public String[] getNumberArray(int n){
-        String[] array = new String[n];
-        for(int i=0; i < n; i++){
-            array[i] = Integer.toString(i+1);
-        }
-        return array;
-    }
-
-    //method to initialise address tape with combinations, delimited by #
-    //write every string combination
-   /* public void writeToAddress(String curr){
-        for(int i=0; i<curr.length(); i++){
-            addressTape.add(addressHead++, Character.toString(curr.charAt(i)));
-        }
-        addressTape.add(addressHead++, "#");
-        num++;
-    }*/
-
-    // https://codereview.stackexchange.com/questions/41510/calculate-all-possible-combinations-of-given-characters
-    public void getPossibleStrings(int maxLength, String[] alphabet, String curr) {
-
-        // If the current string has reached it's maximum length
-        if(curr.length() == maxLength) {
-            System.out.println(curr);
-           // writeToAddress(curr);
-
-            // Else add each letter from the alphabet to new strings and process these new strings again
-        } else {
-            for(int i = 0; i < alphabet.length; i++) {
-                String oldCurr = curr;
-                curr += alphabet[i];
-                getPossibleStrings(maxLength,alphabet,curr);
-                curr = oldCurr;
-            }
-        }
-    }
-
-    // create a tree from root, given input, check if transition exist, if so add a node
-    // level is depth of tree (which level) and order is (ith child?)
+    /**
+     * Reads input according from the defined state and symbol.
+     * Use transition table to find next, builds tree from node as it progresses.
+     * Keeps track of ith child node it is at at every level using addressTape
+     * Uses backtracking algorithm by returning to the calling function and starts from the previous step
+     * again and try the next child. If it reaches the end where all nodes of the root is tested but
+     * not accepting it will reject.
+     * @param state current state
+     * @param symbol current symbol
+     * @return
+     */
     public boolean test(String state, String symbol){
         while(true) {
             System.out.println("read state " + state + " and symbol " + symbol);
@@ -87,6 +53,7 @@ public class NDTM extends TM{
                     System.out.println("it doesn't contain symbol");
                     addressHead = 0;
                     addressTape.set(addressHead, Integer.toString(current.getChildren().size()));
+                    setMoves(getMoves()-1);
                     return false;
                 }
                 System.out.println("can't find the key");
@@ -97,6 +64,7 @@ public class NDTM extends TM{
                     //addressTape.set(--addressHead, "_");
                     tape.set(head, current.getReadSymbol());
                     currentState = current.getReadState();
+                    setMoves(getMoves()-1);
                 }
                 addressHead--; //keep the value
                 //moving up to parent
@@ -140,6 +108,7 @@ public class NDTM extends TM{
                 }
                 currentState = nextState;
                 tape.set(head, toWrite);
+                setMoves(getMoves()+1);
                 int move = Utils.getDirection(current.getDir());
                 System.out.println("move is " + move);
                 System.out.println("next state is " + currentState + " and write to head " + toWrite);
@@ -169,8 +138,15 @@ public class NDTM extends TM{
 
         }
     }
+
+    /**
+     * Reads input string, ready to be processed by loading to the tape.
+     * Calls test method until it reaches the end of rejecting or accepting conclusion.
+     * Checks rejection to terminate
+     * @param input string to read
+     * @return boolean denoting whether to accept or reject
+     */
     public boolean read(String input){
-        this.input = input;
         System.out.println("Start reading inside ndtm and input is " + input);
         boolean accept = false;
         //String[] nums = getNumberArray(maxChild);

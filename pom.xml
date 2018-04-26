@@ -13,8 +13,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <dtm>testData/t4.txt</dtm>
-        <readSymbol>t4_in.txt</readSymbol>
+        <dtm>testData/t1.txt</dtm>
+        <readSymbol>t1_in.txt</readSymbol>
         <type>d</type>
     </properties>
 

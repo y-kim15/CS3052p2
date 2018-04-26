@@ -72,6 +72,8 @@ s14 * s15 X R
 s14 # s16 # R
 s14 0 s6 X R
 s14 1 s8 X R
+s15 0 s8 X R
+s15 1 s6 * R
 s15 # s17 # R
 s16 X s16 X R
 s16 _ s19 _ S

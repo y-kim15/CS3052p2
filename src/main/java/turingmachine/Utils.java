@@ -9,6 +9,9 @@ import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+/**
+ * Class containing some utility functions
+ */
 public class Utils {
     public static final int RANDOM_SEED_1 = 0;
     public static final int RANDOM_SEED_2 = 1;
@@ -21,7 +24,15 @@ public class Utils {
     public static Random r4 = new Random(RANDOM_SEED_4);
     public static Random r5 = new Random(RANDOM_SEED_5);
 
+    /**
+     * Creates palindrome
+     * @param length of given length
+     * @param seed seed to get reproducible result
+     * @param type to get a mix of even and odd length
+     * @return palindrome formed
+     */
     public static String getPalindrome(int length, int seed, boolean type){
+        length = length/2;
         Random r = new Random(seed);
         String front = "";
         String reverse = "";
@@ -47,26 +58,33 @@ public class Utils {
         Random r = new Random(r1.nextInt());
         String p = getPalindrome(length, r.nextInt(), r.nextBoolean());
         if(!correct){
-            int errorType = r.nextInt(3);
+            int errorType = r.nextInt(2);
             int i = r.nextInt(p.length());
             StringBuilder sb = new StringBuilder(p);
+            System.out.println("error type " + errorType);
             switch (errorType){
                 case 0: sb = sb.deleteCharAt(i);
+                        sb = sb.deleteCharAt(r.nextInt(sb.length()));
                         p = sb.toString();
                         break;
-                case 1: sb = sb.replace(i, i+1, "_");
-                        p = sb.toString();
-                        break;
-                case 2: List<Integer> list = IntStream.rangeClosed(0, p.length()-1)
-                            .boxed().collect(Collectors.toList());
-                        Collections.shuffle(list);
-                        String shuffled = "";
-                        StringBuilder sb3 = new StringBuilder(shuffled);
-                        for(int j=0; j < p.length(); j++){
-                            sb3.append(p.charAt(list.get(j)));
+                case 1: p = sb.toString();
+                        int j = r.nextInt(p.length());
+                        String str = Character.toString(p.charAt(j));
+                        if(str.equals("0")){
+                            if(r.nextBoolean()) sb.setCharAt(j, '1');
+                            else sb.setCharAt(j, '2');
                         }
-                        p = sb3.toString();
+                        else if(str.equals("1")){
+                            if(r.nextBoolean()) sb.setCharAt(j, '0');
+                            else sb.setCharAt(j, '2');
+                        }
+                        else{
+                            if(r.nextBoolean()) sb.setCharAt(j, '0');
+                            else sb.setCharAt(j, '1');
+                        }
+                        p = sb.toString();
                         break;
+
             }
 
         }
@@ -74,6 +92,7 @@ public class Utils {
     }
 
     public static String getBinary(int length, int seed){
+        length /= 3;
         Random r = new Random(seed);
         String b = "";
         StringBuilder sb = new StringBuilder(b);
@@ -223,6 +242,7 @@ public class Utils {
         return sb.toString() + sb2.toString();
     }
     public static String generateEqualBinary(boolean correct, int length) {
+        length /= 2;
         String concat = getEqualBinary(length);
         Random r = new Random(r3.nextInt());
         if(!correct){
@@ -276,6 +296,7 @@ public class Utils {
         return sb.toString();
     }
     public static String generateAlphabetWord(boolean correct, int length){
+        length /= 3;
         Random r = new Random(r4.nextInt());
         int i = r.nextInt(length-1)+1;
         int j = r.nextInt(length-1)+1;

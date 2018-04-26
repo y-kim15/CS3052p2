@@ -23,11 +23,12 @@ public class PalindromeTest {
     private static FileWriter writer;
     private static List<String> inputBuffer = new ArrayList<String>();
     private static long totalTime = 0;
+    private static int totalMove = 0;
     private static int count = 0;
-    private static int repeat = 10;
-    private static int min = 5;
-    private static int max = 5;
-    private static int step = 5;
+    private static int repeat = 20;
+    private static int min = 100;
+    private static int max = 500;
+    private static int step = 100;
     private static boolean form = true;
     @Parameterized.Parameters()
     public static Iterable<Object[]> data()throws IOException {
@@ -75,7 +76,7 @@ public class PalindromeTest {
         try {
             Files.deleteIfExists(Paths.get(outputFile));
             writer = new FileWriter(outputFile);
-            Utils.writeCSVLine(writer, Arrays.asList("Length","Time"));
+            Utils.writeCSVLine(writer, Arrays.asList("Length","Time", "Moves"));
         }
         catch(IOException e){
             e.getMessage();
@@ -97,25 +98,31 @@ public class PalindromeTest {
             System.out.println(e.getStackTrace());
         }
     }
+
     @Test
     public void test() throws ClassNotFoundException, Exception {
-        System.out.println("--------------------- Test Started ------------------------------");
+        //System.out.println("--------------------- Test Started ------------------------------");
 
         String[] args = {TMDescriptionFile, inputFile};
-        System.out.println("input is " + input);
+        //System.out.println("input is " + input);
         //System.out.println("D file is " + TMDescriptionFile);
         //System.out.println("input file is " + inputFile);
+
         long startTime = System.nanoTime();
-        boolean result;
+        boolean result = false;
         if(form) result = runD.runTm(TMDescriptionFile, inputFile);
         else result = runD.runNtm(TMDescriptionFile, inputFile);
         long endTime   = System.nanoTime();
         long time = (endTime - startTime)/100000;
         totalTime += time;
+        totalMove += runD.getMove();
         count++;
-        if(result) System.out.println("PASS");
+        /*if(result) System.out.println("PASS");
         else System.out.println("FAIL");
-        assertEquals(result, correct);
+        if(result != correct){
+            System.out.println("STOP!");
+        }*/
+        assertEquals(correct, result);
 
 
 
@@ -128,20 +135,23 @@ public class PalindromeTest {
             long average = totalTime/repeat;
             inputBuffer.add(Long.toString(average));
             totalTime =0;
+            long avMove = totalMove/repeat;
+            inputBuffer.add(Long.toString(avMove));
+            totalMove = 0;
             Utils.writeCSVLine(writer,inputBuffer);
             inputBuffer.clear();
             count =0;
-            min += repeat;
+            min += step;//repeat;
         }
         File file = new File(inputFile);
 
         if(file.delete())
         {
-            System.out.println("File deleted successfully");
+            //System.out.println("File deleted successfully");
         }
         else
         {
-            System.out.println("Failed to delete the file");
+            //System.out.println("Failed to delete the file");
         }
     }
 

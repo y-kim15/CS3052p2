@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * This is an implementation of Node
  * @author w w w. j a v a g i s t s . c o m
  *
  */
