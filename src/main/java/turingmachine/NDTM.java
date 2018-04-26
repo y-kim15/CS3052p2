@@ -39,10 +39,10 @@ public class NDTM extends TM{
      */
     public boolean test(String state, String symbol){
         while(true) {
-            System.out.println("read state " + state + " and symbol " + symbol);
+            //System.out.println("read state " + state + " and symbol " + symbol);
             Tuple read = new Tuple(state, symbol);
             if (root == null) {
-                System.out.println("root is null");
+                //System.out.println("root is null");
                 root = new Node<>(state, symbol);
                 current = root;
                 addressTape.set(addressHead++, "1");
@@ -50,13 +50,13 @@ public class NDTM extends TM{
             }
             if (!tree.containsKey(read)) {
                 if(!getTapeAlph().contains(symbol)){
-                    System.out.println("it doesn't contain symbol");
+                    //System.out.println("it doesn't contain symbol");
                     addressHead = 0;
                     addressTape.set(addressHead, Integer.toString(current.getChildren().size()));
-                    setMoves(getMoves()-1);
+                    setMoves(getMoves()+1);
                     return false;
                 }
-                System.out.println("can't find the key");
+                //System.out.println("can't find the key");
                 current.currentChild = 0;
                 if(addressHead-1 > 0) {
                     head -= Utils.getDirection(current.getDir());
@@ -64,7 +64,7 @@ public class NDTM extends TM{
                     //addressTape.set(--addressHead, "_");
                     tape.set(head, current.getReadSymbol());
                     currentState = current.getReadState();
-                    setMoves(getMoves()-1);
+                    setMoves(getMoves()+1);
                 }
                 addressHead--; //keep the value
                 //moving up to parent
@@ -74,7 +74,7 @@ public class NDTM extends TM{
                 Node<String> newN = new Node<>(node.getReadState(), node.getReadSymbol());
                 newN.setChildren(node.getChildren());
                 newN.setParent(current);
-                System.out.println("Node found with str " + node.getReadState() + " symbol " + node.getReadSymbol());
+                //System.out.println("Node found with str " + node.getReadState() + " symbol " + node.getReadSymbol());
                 List<Node<String>> children = node.getChildren();
                 Node<String> child = new Node<>(null,null);
                 String s = addressTape.get(addressHead);
@@ -87,14 +87,14 @@ public class NDTM extends TM{
                 else{
                     int value = Integer.parseInt(addressTape.get(addressHead));
                     if (value >= children.size()) {
-                        System.out.println("no more children to test on");
+                        //System.out.println("no more children to test on");
                         //current = current.getParent();//newN.getParent();//node.getParent();
                         //addressTape.set(addressHead, "_");
-                        System.out.println("current has " + current.getReadState() + " and symbol " + current.getReadSymbol());
+                        //System.out.println("current has " + current.getReadState() + " and symbol " + current.getReadSymbol());
                         addressHead--;
                         return false;
                     } else if (value >= 0 && value < children.size()) {
-                        System.out.println("there exists somewhere to move!");
+                        //System.out.println("there exists somewhere to move!");
                         addressTape.set(addressHead++, Integer.toString(value+1));
                         child = newN.getChildren().get(value);
                         current = child;
@@ -110,8 +110,8 @@ public class NDTM extends TM{
                 tape.set(head, toWrite);
                 setMoves(getMoves()+1);
                 int move = Utils.getDirection(current.getDir());
-                System.out.println("move is " + move);
-                System.out.println("next state is " + currentState + " and write to head " + toWrite);
+                //System.out.println("move is " + move);
+                //System.out.println("next state is " + currentState + " and write to head " + toWrite);
                 if (head == 0 && move == -1) move = 0;
                 head += move;
 
@@ -122,7 +122,7 @@ public class NDTM extends TM{
                     }
                     currentSize += FIRSTSIZE;
                 }
-                System.out.println("size is " + addressTape.size() + " and head is at " + addressHead);
+                //System.out.println("size is " + addressTape.size() + " and head is at " + addressHead);
                 if(addressHead == addressTape.size()){
                     for (int i = 0; i < FIRSTSIZE; i++) {
                         addressTape.add("_");
@@ -130,8 +130,8 @@ public class NDTM extends TM{
                 }
                 state = currentState;
                 symbol = tape.get(head);
-                System.out.println("current state is " + state + " " + currentState + " and symbol is " + symbol + " " +
-                    tape.get(head));
+                //System.out.println("current state is " + state + " " + currentState + " and symbol is " + symbol + " " +
+                //    tape.get(head));
 
 
             }
@@ -167,8 +167,8 @@ public class NDTM extends TM{
                 System.out.println("!accept");
                 //if(addressHead < 0 ) return false; // case when completely invalid alphabet encountered
                 String i = addressTape.get(addressHead);
-                System.out.println("addressHead is at index " + addressHead);
-                System.out.println("size of children is " + current.getChildren().size() + " and  i is "+ i);
+                //System.out.println("addressHead is at index " + addressHead);
+                //System.out.println("size of children is " + current.getChildren().size() + " and  i is "+ i);
                 if(current.getChildren().size() == Integer.parseInt(i) && addressHead == 0){
                     return false;
                 }

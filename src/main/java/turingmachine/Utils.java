@@ -58,34 +58,26 @@ public class Utils {
         Random r = new Random(r1.nextInt());
         String p = getPalindrome(length, r.nextInt(), r.nextBoolean());
         if(!correct){
-            int errorType = r.nextInt(2);
+            int errorType = r.nextInt(1);
             int i = r.nextInt(p.length());
             StringBuilder sb = new StringBuilder(p);
-            System.out.println("error type " + errorType);
-            switch (errorType){
-                case 0: sb = sb.deleteCharAt(i);
-                        sb = sb.deleteCharAt(r.nextInt(sb.length()));
-                        p = sb.toString();
-                        break;
-                case 1: p = sb.toString();
-                        int j = r.nextInt(p.length());
-                        String str = Character.toString(p.charAt(j));
-                        if(str.equals("0")){
-                            if(r.nextBoolean()) sb.setCharAt(j, '1');
-                            else sb.setCharAt(j, '2');
-                        }
-                        else if(str.equals("1")){
-                            if(r.nextBoolean()) sb.setCharAt(j, '0');
-                            else sb.setCharAt(j, '2');
-                        }
-                        else{
-                            if(r.nextBoolean()) sb.setCharAt(j, '0');
-                            else sb.setCharAt(j, '1');
-                        }
-                        p = sb.toString();
-                        break;
-
+            //System.out.println("error type " + errorType);
+            p = sb.toString();
+            int j = r.nextInt(p.length());
+            String str = Character.toString(p.charAt(j));
+            if(str.equals("0")){
+                if(r.nextBoolean()) sb.setCharAt(j, '1');
+                else sb.setCharAt(j, '2');
             }
+            else if(str.equals("1")){
+                if(r.nextBoolean()) sb.setCharAt(j, '0');
+                else sb.setCharAt(j, '2');
+            }
+            else{
+                if(r.nextBoolean()) sb.setCharAt(j, '0');
+                else sb.setCharAt(j, '1');
+            }
+            p = sb.toString();
 
         }
         return p;

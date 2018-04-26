@@ -27,7 +27,7 @@ public class PalindromeTest {
     private static int count = 0;
     private static int repeat = 20;
     private static int min = 100;
-    private static int max = 500;
+    private static int max = 1000;
     private static int step = 100;
     private static boolean form = true;
     @Parameterized.Parameters()
@@ -57,6 +57,9 @@ public class PalindromeTest {
                 inputFile = "./tm3_in.txt";
                 outputFile = "./tm3_output.txt";
                 type = 1;
+                min = 50;
+                max = 100;
+                step = 10;
             }
         }
         return Utils.getParamsByConditions(type, correct, min,max,repeat, step);
@@ -117,11 +120,14 @@ public class PalindromeTest {
         totalTime += time;
         totalMove += runD.getMove();
         count++;
-        /*if(result) System.out.println("PASS");
+        if(result) System.out.println("PASS");
         else System.out.println("FAIL");
+
         if(result != correct){
             System.out.println("STOP!");
-        }*/
+            System.out.println("input was " + input);
+            throw new NullPointerException();
+        }
         assertEquals(correct, result);
 
 
