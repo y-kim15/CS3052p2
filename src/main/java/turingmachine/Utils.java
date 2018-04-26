@@ -61,28 +61,41 @@ public class Utils {
             int errorType = r.nextInt(1);
             int i = r.nextInt(p.length());
             StringBuilder sb = new StringBuilder(p);
-            //System.out.println("error type " + errorType);
-            p = sb.toString();
-            int j = r.nextInt(p.length());
-            String str = Character.toString(p.charAt(j));
-            if(str.equals("0")){
-                if(r.nextBoolean()) sb.setCharAt(j, '1');
-                else sb.setCharAt(j, '2');
+            switch(errorType){
+                case 0: p = sb.toString();
+                        int j = r.nextInt(p.length());
+                        String str = Character.toString(p.charAt(j));
+                        if(str.equals("0")){
+                            if(r.nextBoolean()) sb.setCharAt(j, '1');
+                            else sb.setCharAt(j, '2');
+                        }
+                        else if(str.equals("1")){
+                            if(r.nextBoolean()) sb.setCharAt(j, '0');
+                            else sb.setCharAt(j, '2');
+                        }
+                        else{
+                            if(r.nextBoolean()) sb.setCharAt(j, '0');
+                            else sb.setCharAt(j, '1');
+                        }
+                        p = sb.toString();
+                        break;
+                case 1: int random = r.nextInt(7)+3;
+                        sb.append(Integer.toString(random));
+                        p = sb.toString();
+                        break;
             }
-            else if(str.equals("1")){
-                if(r.nextBoolean()) sb.setCharAt(j, '0');
-                else sb.setCharAt(j, '2');
-            }
-            else{
-                if(r.nextBoolean()) sb.setCharAt(j, '0');
-                else sb.setCharAt(j, '1');
-            }
-            p = sb.toString();
+
 
         }
         return p;
     }
 
+    /**
+     * Generates binary string consisting of random placement of 0 and 1s
+     * @param length total length of the string as a whole so this will be divided by 3;
+     * @param seed
+     * @return string made
+     */
     public static String getBinary(int length, int seed){
         length /= 3;
         Random r = new Random(seed);
@@ -95,6 +108,12 @@ public class Utils {
         return sb.toString();
     }
 
+    /**
+     * Conducts binary addition
+     * @param s1
+     * @param s2
+     * @return returns added sum
+     */
     public static String sum(String s1, String s2){
         int len;
         if(s1.length() >= s2.length()) len = s1.length();
@@ -137,38 +156,26 @@ public class Utils {
 
 
     // length denote length of one binary word (at most with min 1)
+
+    /**
+     * Generates input strings for binary addition problem
+     * @param correct boolean denoting whether to generate valid or invalid string for testing
+     * @param length total length of input string
+     * @return input string created
+     */
     public static String generateBinaryForm(boolean correct, int length) {
         Random r = new Random(r2.nextInt());
         String w1 = getBinary(length, r.nextInt());
         String w2 = getBinary(length, r.nextInt());
-        //int n1 = Integer.parseInt(w1, 2);
-        //int n2 = Integer.parseInt(w2, 2);
-        //int sum = n1+n2;
-        /*if(!correct) {
 
-            // 0: w1+1, 1: w2-1, 2: w3+1, 3: #
-            int errorType = r.nextInt(3);
-            switch (errorType) {
-                case 0: n1++;
-                        sum = n1+n2;
-                        break;
-                case 1: n2--;
-                        sum = n1+n2;
-                        break;
-                case 2: sum++;
-                        break;
-            }
-        }
-        String w3 = Integer.toString(sum);
-        */
         String p = "";
         String  w3 = sum(w1, w2);
-        //System.out.println(w3);
+
         if(correct) {
             p = w1 + "#" + w2 + "#" + w3;
         }
         else{
-            int errorType = r.nextInt(6);
+            int errorType = r.nextInt(7);
             switch(errorType){
                 case 0: p = w1 + w2 + "#" + w3;
                     break;
@@ -191,37 +198,22 @@ public class Utils {
                     }
                     p = sb3.toString();
                     break; // complete shuffle
+                case 6: p = w1 + "#" + w2 + "#" + w3;
+                        StringBuilder sb4 = new StringBuilder(p);
+                        int random = r.nextInt(7)+3;
+                        sb4.append(Integer.toString(random));
+                        p = sb4.toString();
+                        break;
             }
         }
-        /*else{
-            int errorType = r.nextInt(6);
-            switch (errorType) {
-                case 0:  p = Integer.toString(n1) + Integer.toString(n2) + "#" + w3;
-                    break;
-                case 1:  p = Integer.toString(n1) + "#" + Integer.toString(n2) + w3;
-                    break;
-                case 2:  p = Integer.toString(n1) + "#" + "#" + w3;
-                    break;
-                case 3: p = Integer.toString(n1) + "#" + Integer.toString(n2) + "#" ;
-                    break;
-                case 4:  p = "#" + Integer.toString(n2) + "#" + w3;
-                    break;
-                case 5:  p = Integer.toString(n1) + "#" + Integer.toString(n2) + "#" + w3;
-                        List<Integer> list = IntStream.rangeClosed(0, p.length()-1)
-                            .boxed().collect(Collectors.toList());
-                        Collections.shuffle(list);
-                        String shuffled = "";
-                        StringBuilder sb3 = new StringBuilder(shuffled);
-                        for(int i=0; i < p.length(); i++){
-                            sb3.append(p.charAt(list.get(i)));
-                        }
-                        p = sb3.toString();
-                        break; // complete shuffle
-            }
-
-        }*/
         return p;
     }
+
+    /**
+     * Generates string consisting of 0s and 1s for the problem 3
+     * @param length the total length of string
+     * @return string built
+     */
     public static String getEqualBinary(int length){
         String zeros = "";
         StringBuilder sb = new StringBuilder(zeros);
@@ -238,7 +230,7 @@ public class Utils {
         String concat = getEqualBinary(length);
         Random r = new Random(r3.nextInt());
         if(!correct){
-            int errorType = r.nextInt(6);
+            int errorType = r.nextInt(7);
             switch (errorType){
                 case 0: concat = concat.substring(1,2*length); //-1 from 0
                         break;
@@ -253,6 +245,9 @@ public class Utils {
                         break;
                 case 5: rmv = r.nextInt(length-1)+1;
                         concat = concat.substring(length+rmv, 2*length); // -rmv of 1s from string
+                        break;
+                case 6: int random = r.nextInt(7)+3;
+                        concat += Integer.toString(random);
                         break;
             }
         }
@@ -271,6 +266,15 @@ public class Utils {
         }
         return concat;
     }
+
+    /**
+     * Generates string consisting of a,b,c to be tested on the problem 4
+     * @param length total length of string
+     * @param i number of as
+     * @param j number of bs
+     * @param seed
+     * @return string built
+     */
     public static String getAlphabetWord(int length, int i, int j, int seed){
         Random r = new Random(seed);
         int k = i*j;
@@ -288,10 +292,11 @@ public class Utils {
         return sb.toString();
     }
     public static String generateAlphabetWord(boolean correct, int length){
-        length /= 3;
+        length /= 10;
         Random r = new Random(r4.nextInt());
         int i = r.nextInt(length-1)+1;
         int j = r.nextInt(length-1)+1;
+
         String p = getAlphabetWord(length, i, j, r.nextInt());
         if(!correct){
             int errorType = r.nextInt(7);
@@ -318,12 +323,26 @@ public class Utils {
                         }
                         p = sb3.toString();
                         break;
+                case 7: int random = r.nextInt();
+                        p += Integer.toString(random);
+                        break;
             }
         }
+
         return p;
 
     }
 
+    /**
+     * Generates list of parameter pairs to be used in PalindromeTest test suite
+     * @param type which problem tested
+     * @param correct whether to generate correct only or mix
+     * @param min minimum string length
+     * @param max maximum
+     * @param nEach the number of strings of equal length to generate
+     * @param step
+     * @return list consisting of all pairs
+     */
     public static List<Object[]> getParamsByConditions(int type, boolean correct, int min, int max, int nEach, int step){
         List<Object[]> list = new ArrayList<>();
         for(int i=min; i<=max; i+=step){

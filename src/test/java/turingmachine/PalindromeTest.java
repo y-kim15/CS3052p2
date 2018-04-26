@@ -19,7 +19,7 @@ import static org.junit.Assert.assertTrue;
 public class PalindromeTest {
     private static String TMDescriptionFile = "testData/t1.txt";
     private static String inputFile = "./t1_in.txt";
-    private static String outputFile = "./t1_dtm_output.csv";
+    private static String outputFile = "outputs/t1_dtm_output.csv";
     private static FileWriter writer;
     private static List<String> inputBuffer = new ArrayList<String>();
     private static long totalTime = 0;
@@ -40,19 +40,19 @@ public class PalindromeTest {
             type = Integer.parseInt(problem);
             TMDescriptionFile = "testData/t" + problem + ".txt";
             inputFile = "./t" + problem + "_in.txt";
-            outputFile = "./t" + problem + "_output.csv";
+            outputFile = "outputs/t" + problem + "_output.csv";
             System.out.println("problem value is found");
-            if(type == 4){
-                min = 50;
-                max = 100;
-                step = 10;
-                repeat = 30;
-            }
+            //if(type == 4){
+            //    min = 50;
+            //    max = 100;
+            //    step = 10;
+            //    repeat = 30;
+            //}
         }
         if(errors != null){
             if(errors.equals("f")) correct = false;
-            if(problem != null) outputFile = "./t" + problem + "_errors_output.csv";
-            else outputFile = "./t1_errors_output.csv";
+            if(problem != null) outputFile = "outputs/t" + problem + "_errors_output.csv";
+            else outputFile = "outputs/t1_errors_output.csv";
         }
         else{
             System.out.println("error term not found");
@@ -63,7 +63,7 @@ public class PalindromeTest {
                 form = false;
                 TMDescriptionFile = "testData/tm3.txt";
                 inputFile = "./tm3_in.txt";
-                outputFile = "./tm3_output.csv";
+                outputFile = "outputs/tm3_output.csv";
                 type = 1;
                 min = 100;
                 max = 500;

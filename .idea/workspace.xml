@@ -2,25 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cac1a202-7305-4df2-a13d-dd55aeac5256" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/t1_in.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/t1_output.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/t2_output.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/t3_output.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/t4_in.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/t4_output.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tm2.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tm2_output.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/turingmachine/PalindromeTest.class" afterPath="$PROJECT_DIR$/target/test-classes/turingmachine/PalindromeTest.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/t1_dtm_output.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/t1_output.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/t2_in.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/t2_output.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/t3_in.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/t3_output.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/t4_output.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tm3_output.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tm3_output.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/turingmachine/Utils.java" afterPath="$PROJECT_DIR$/src/main/java/turingmachine/Utils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/turingmachine/PalindromeTest.java" afterPath="$PROJECT_DIR$/src/test/java/turingmachine/PalindromeTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/t1_output.csv" afterPath="$PROJECT_DIR$/t1_output.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/t4_output.csv" afterPath="$PROJECT_DIR$/t4_output.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-turingmachine.PalindromeTest.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-turingmachine.PalindromeTest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/turingmachine.PalindromeTest.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/turingmachine.PalindromeTest.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -36,7 +29,7 @@
       <file leaf-file-name="DTM.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/turingmachine/DTM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="427">
               <caret line="61" column="18" lean-forward="false" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
               <folding />
             </state>
@@ -46,8 +39,8 @@
       <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/turingmachine/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1080">
-              <caret line="67" column="32" lean-forward="false" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
+            <state relative-caret-position="594">
+              <caret line="294" column="20" lean-forward="false" selection-start-line="294" selection-start-column="20" selection-end-line="294" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,45 +58,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PalindromeTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PalindromeTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/turingmachine/PalindromeTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="29" column="29" lean-forward="false" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+            <state relative-caret-position="308">
+              <caret line="49" column="14" lean-forward="false" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#704#712#0" expanded="true" />
+                <element signature="e#710#718#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="t4_output.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/t4_output.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="t1_dtm_output.csv" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/t1_dtm_output.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="t1_output.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/t1_output.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -113,16 +76,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="684">
               <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tm3_output.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tm3_output.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -177,9 +130,9 @@
         <option value="$PROJECT_DIR$/src/test/java/turingmachine/OneTest.java" />
         <option value="$PROJECT_DIR$/t1_output.txt" />
         <option value="$PROJECT_DIR$/src/main/java/turingmachine/NDTM.java" />
-        <option value="$PROJECT_DIR$/src/main/java/turingmachine/Utils.java" />
         <option value="$PROJECT_DIR$/src/main/java/turingmachine/DTMReader.java" />
         <option value="$PROJECT_DIR$/tm3_output.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/turingmachine/Utils.java" />
         <option value="$PROJECT_DIR$/src/test/java/turingmachine/PalindromeTest.java" />
       </list>
     </option>
@@ -502,7 +455,7 @@
       <workItem from="1524598579869" duration="27427000" />
       <workItem from="1524745655569" duration="8962000" />
       <workItem from="1524758059368" duration="1047000" />
-      <workItem from="1524764220934" duration="964000" />
+      <workItem from="1524764220934" duration="5879000" />
     </task>
     <servers />
   </component>
@@ -539,7 +492,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130972000" />
+    <option name="totallyTimeSpent" value="135887000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-14" y="0" width="1920" height="1020" extended-state="6" />
@@ -620,7 +573,7 @@
           <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#704#712#0" expanded="true" />
+            <element signature="e#710#718#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -826,23 +779,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/turingmachine/Test.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/turingmachine/runD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/turingmachine/OneTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/turingmachine/DTM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="61" column="18" lean-forward="false" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/turingmachine/NDTM.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2988">
@@ -856,16 +793,6 @@
         <state relative-caret-position="900">
           <caret line="44" column="45" lean-forward="false" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/turingmachine/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="67" column="32" lean-forward="false" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -909,17 +836,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/turingmachine/PalindromeTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="29" column="29" lean-forward="false" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#704#712#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tm3_output.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -933,6 +849,43 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/turingmachine/DTM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="61" column="18" lean-forward="false" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/turingmachine/runD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/turingmachine/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="294" column="20" lean-forward="false" selection-start-line="294" selection-start-column="20" selection-end-line="294" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/turingmachine/PalindromeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="49" column="14" lean-forward="false" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#710#718#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
