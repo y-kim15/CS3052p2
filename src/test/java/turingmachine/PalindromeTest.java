@@ -19,7 +19,7 @@ import static org.junit.Assert.assertTrue;
 public class PalindromeTest {
     private static String TMDescriptionFile = "testData/t1.txt";
     private static String inputFile = "./t1_in.txt";
-    private static String outputFile = "./t1_output.csv";
+    private static String outputFile = "./t1_dtm_output.csv";
     private static FileWriter writer;
     private static List<String> inputBuffer = new ArrayList<String>();
     private static long totalTime = 0;
@@ -46,6 +46,7 @@ public class PalindromeTest {
                 min = 50;
                 max = 100;
                 step = 10;
+                repeat = 30;
             }
         }
         if(errors != null){
@@ -64,9 +65,9 @@ public class PalindromeTest {
                 inputFile = "./tm3_in.txt";
                 outputFile = "./tm3_output.csv";
                 type = 1;
-                min = 50;
-                max = 100;
-                step = 10;
+                min = 100;
+                max = 500;
+                step = 100;
             }
         }
         return Utils.getParamsByConditions(type, correct, min,max,repeat, step);
