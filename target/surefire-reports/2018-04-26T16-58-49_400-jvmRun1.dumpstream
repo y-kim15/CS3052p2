@@ -1,0 +1,17 @@
+# Created on 2018-04-26T17:23:00.377
+TestSet has not finished before stream error has appeared >> initializing exit by non-null configuration: DEFAULT
+java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+# Created on 2018-04-26T17:23:01.133
+Unexpected IOException: 6,1,turingmachine.PalindromeTest,test[164](turingmachine.PalindromeTest),null,null,null
+
+
+# Created on 2018-04-26T17:23:01.175
+Unexpected IOException: 5,1,turingmachine.PalindromeTest,test[165](turingmachine.PalindromeTest),null,null,null
+
+
