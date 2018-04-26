@@ -1,4 +1,4 @@
-states 20
+states 21
 s0
 s1
 s2
@@ -19,6 +19,7 @@ s16
 s17
 s18
 s19 +
+s20
 alphabet 5 0 1 # X *
 s0 0 s1 _ R
 s0 1 s2 _ R
@@ -41,10 +42,13 @@ s4 0 s8 X R
 s4 # s10 # R
 s5 1 s6 * R
 s5 0 s8 X R
+s5 # s10 # R
 s6 0 s6 0 R
 s6 1 s6 1 R
 s6 # s9 # R
 s7 1 s8 * R
+s7 # s20 # L
+s7 0 s6 * R
 s8 0 s8 0 R
 s8 1 s8 1 R
 s8 # s10 # R
@@ -74,3 +78,4 @@ s16 _ s19 _ S
 s17 X s17 X R
 s17 1 s18 X R
 s18 _ s19 _ S
+s20 X s6 * R

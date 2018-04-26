@@ -1,16 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: turingmachine.PalindromeTest
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.749 s <<< FAILURE! - in turingmachine.PalindromeTest
-test[1](turingmachine.PalindromeTest)  Time elapsed: 0.054 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<false> but was:<true>
-	at turingmachine.PalindromeTest.test(PalindromeTest.java:118)
-
-test[4](turingmachine.PalindromeTest)  Time elapsed: 0.051 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<false> but was:<true>
-	at turingmachine.PalindromeTest.test(PalindromeTest.java:118)
-
-test[8](turingmachine.PalindromeTest)  Time elapsed: 0.04 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<false> but was:<true>
-	at turingmachine.PalindromeTest.test(PalindromeTest.java:118)
-
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.016 s - in turingmachine.PalindromeTest
