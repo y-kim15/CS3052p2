@@ -39,7 +39,7 @@ public class NDTM extends TM{
      */
     public boolean test(String state, String symbol){
         while(true) {
-            //System.out.println("read state " + state + " and symbol " + symbol);
+            System.out.println("read state " + state + " and symbol " + symbol);
             Tuple read = new Tuple(state, symbol);
             if (root == null) {
                 //System.out.println("root is null");
@@ -50,13 +50,13 @@ public class NDTM extends TM{
             }
             if (!tree.containsKey(read)) {
                 if(!getTapeAlph().contains(symbol)){
-                    //System.out.println("it doesn't contain symbol");
+                    System.out.println("it doesn't contain symbol");
                     addressHead = 0;
                     addressTape.set(addressHead, Integer.toString(current.getChildren().size()));
                     setMoves(getMoves()+1);
                     return false;
                 }
-                //System.out.println("can't find the key");
+                System.out.println("can't find the key");
                 current.currentChild = 0;
                 if(addressHead-1 > 0) {
                     head -= Utils.getDirection(current.getDir());
@@ -87,17 +87,24 @@ public class NDTM extends TM{
                 else{
                     int value = Integer.parseInt(addressTape.get(addressHead));
                     if (value >= children.size()) {
-                        //System.out.println("no more children to test on");
+                        System.out.println("no more children to test on");
+                        //head -= Utils.getDirection(current.getDir());//
+                        //current = current.getParent();//
+                        //addressTape.set(--addressHead, "_");
+                        //tape.set(head, current.getReadSymbol());//
+                        //currentState = current.getReadState();//
+                        //setMoves(getMoves()+1);
                         //current = current.getParent();//newN.getParent();//node.getParent();
                         //addressTape.set(addressHead, "_");
                         //System.out.println("current has " + current.getReadState() + " and symbol " + current.getReadSymbol());
                         addressHead--;
                         return false;
                     } else if (value >= 0 && value < children.size()) {
-                        //System.out.println("there exists somewhere to move!");
+                        System.out.println("there exists somewhere to move!");
                         addressTape.set(addressHead++, Integer.toString(value+1));
-                        child = newN.getChildren().get(value);
+                        child = newN.getChildren().get(value);//+1?
                         current = child;
+                        //current.setParent(newN);//
                     }
                 }
                 String nextState = current.getReadState();
@@ -111,7 +118,7 @@ public class NDTM extends TM{
                 setMoves(getMoves()+1);
                 int move = Utils.getDirection(current.getDir());
                 //System.out.println("move is " + move);
-                //System.out.println("next state is " + currentState + " and write to head " + toWrite);
+                System.out.println("next state is " + currentState + " and write to head " + toWrite);
                 if (head == 0 && move == -1) move = 0;
                 head += move;
 
@@ -122,7 +129,7 @@ public class NDTM extends TM{
                     }
                     currentSize += FIRSTSIZE;
                 }
-                //System.out.println("size is " + addressTape.size() + " and head is at " + addressHead);
+                System.out.println("size is " + addressTape.size() + " and head is at " + addressHead);
                 if(addressHead == addressTape.size()){
                     for (int i = 0; i < FIRSTSIZE; i++) {
                         addressTape.add("_");
@@ -130,8 +137,8 @@ public class NDTM extends TM{
                 }
                 state = currentState;
                 symbol = tape.get(head);
-                //System.out.println("current state is " + state + " " + currentState + " and symbol is " + symbol + " " +
-                //    tape.get(head));
+                System.out.println("current state is " + state + " " + currentState + " and symbol is " + symbol + " " +
+                    tape.get(head));
 
 
             }

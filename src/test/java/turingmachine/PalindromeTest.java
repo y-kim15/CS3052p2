@@ -19,7 +19,7 @@ import static org.junit.Assert.assertTrue;
 public class PalindromeTest {
     private static String TMDescriptionFile = "testData/t1.txt";
     private static String inputFile = "./t1_in.txt";
-    private static String outputFile = "outputs/t1_dtm_output.csv";
+    private static String outputFile = "outputs/t1_output.csv";
     private static FileWriter writer;
     private static List<String> inputBuffer = new ArrayList<String>();
     private static long totalTime = 0;
@@ -42,12 +42,7 @@ public class PalindromeTest {
             inputFile = "./t" + problem + "_in.txt";
             outputFile = "outputs/t" + problem + "_output.csv";
             System.out.println("problem value is found");
-            //if(type == 4){
-            //    min = 50;
-            //    max = 100;
-            //    step = 10;
-            //    repeat = 30;
-            //}
+
         }
         if(errors != null){
             if(errors.equals("f")) correct = false;
@@ -60,16 +55,25 @@ public class PalindromeTest {
         String det = System.getProperty("type");
         if(det != null){
             if(det.equals("nd")){
+                if(!correct) outputFile = "outputs/tm4_all_errors_output.csv";//"outputs/tm3_all_errors_output.csv";//"outputs/tm3_700_errors_output.csv";
+                else outputFile = "outputs/tm4_output_csv";//"outputs/tm3_700_output.csv";
                 form = false;
-                TMDescriptionFile = "testData/tm3.txt";
-                inputFile = "./tm3_in.txt";
-                outputFile = "outputs/tm3_output.csv";
-                type = 1;
-                min = 100;
-                max = 500;
-                step = 100;
+                TMDescriptionFile = "testData/tm4.txt";//"testData/tm3.txt";
+                inputFile = "./tm4_in.txt";//"./tm3_in.txt";
+                type = 1;//1;
+                min = 5;
+                max = 5;
+                step = 10;
             }
         }
+        if(problem == null && errors == null && det == null){
+            type = 1;
+            min = 100;
+            max = 700;
+            step = 100;
+            outputFile = "outputs/tm1_700_output.csv";
+        }
+        System.out.println("type " + type + " min " + min + " max " + max + " repeat " + repeat + " step " + step);
         return Utils.getParamsByConditions(type, correct, min,max,repeat, step);
     }
 

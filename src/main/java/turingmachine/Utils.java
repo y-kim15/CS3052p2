@@ -18,11 +18,13 @@ public class Utils {
     public static final int RANDOM_SEED_3 = 2;
     public static final int RANDOM_SEED_4 = 3;
     public static final int RANDOM_SEED_5 = 4;
+    public static final int RANDOM_SEED_6 = 5;
     public static Random r1 = new Random(RANDOM_SEED_1);
     public static Random r2 = new Random(RANDOM_SEED_2);
     public static Random r3 = new Random(RANDOM_SEED_3);
     public static Random r4 = new Random(RANDOM_SEED_4);
     public static Random r5 = new Random(RANDOM_SEED_5);
+    public static Random r6 = new Random(RANDOM_SEED_6);
 
     /**
      * Creates palindrome
@@ -267,6 +269,32 @@ public class Utils {
         return concat;
     }
 
+    public static String generateExtra(boolean correct, int length){
+        Random r = new Random(r6.nextInt());
+        String p = "b";
+        StringBuilder sb = new StringBuilder(p);
+        for(int i=0; i<length-2; i++){
+            sb.append("a");
+        }
+        sb.append("b");
+        if(!correct){
+            int errorType = r.nextInt(4);
+            switch (errorType){
+                case 0: sb.deleteCharAt(sb.length()-1);
+                        break;
+                case 1: sb.deleteCharAt(0);
+                        break;
+                case 2: sb.delete(0, sb.length());
+                        sb.append("bb");
+                        break;
+                case 3: sb.delete(0, sb.length());
+                        sb.append("b");
+                        break;
+            }
+        }
+        return sb.toString();
+    }
+
     /**
      * Generates string consisting of a,b,c to be tested on the problem 4
      * @param length total length of string
@@ -292,8 +320,8 @@ public class Utils {
         return sb.toString();
     }
     public static String generateAlphabetWord(boolean correct, int length){
-        length /= 10;
-        Random r = new Random(r4.nextInt());
+        length /= 15;
+        Random r = new Random(r4.nextInt(length));
         int i = r.nextInt(length-1)+1;
         int j = r.nextInt(length-1)+1;
 
@@ -333,6 +361,8 @@ public class Utils {
 
     }
 
+
+
     /**
      * Generates list of parameter pairs to be used in PalindromeTest test suite
      * @param type which problem tested
@@ -353,7 +383,7 @@ public class Utils {
                     case 1: if(correct) ob[0]= generatePalindrome(correct, i);
 
                             else {
-                                boolean which = r5.nextBoolean();
+                                boolean which =false;// r5.nextBoolean();
                                 ob[0] = generatePalindrome(which, i);
                                 ob[1] = which;
                             }
@@ -379,6 +409,14 @@ public class Utils {
                                 ob[1] = which;
                             }
                             break;
+                    case 5: if(correct) ob[0] = generateExtra(correct, i);
+                            else {
+                                boolean which = r6.nextBoolean();
+                                ob[0] = generateAlphabetWord(which, i);
+                                ob[1] = which;
+                            }
+                            break;
+
                 }
 
                 if(correct) ob[1] = correct;

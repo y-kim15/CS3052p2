@@ -1,0 +1,12 @@
+states 5
+s0
+s1
+s2
+s3
+s4 +
+alphabet 2 a b
+s0 b s1 b R
+s1 a s1 a R
+s1 a s2 a R
+s2 b s3 b R
+s3 _ s4 _ S
