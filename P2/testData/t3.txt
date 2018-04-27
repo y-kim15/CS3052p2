@@ -1,0 +1,50 @@
+states 12
+s0
+s1
+s2
+s3
+s4
+s5
+s6
+s7
+s8
+s9
+s10
+s11 +
+alphabet 3 0 1 X
+s0 _ s11 _ S
+s0 0 s1 _ R
+s0 1 s2 _ R
+s1 0 s1 0 R
+s1 X s1 X R
+s1 1 s3 X S
+s2 1 s2 1 R
+s2 X s2 X R
+s2 0 s5 X S
+s3 0 s3 0 L
+s3 1 s3 1 S
+s3 X s3 X L
+s3 _ s4 _ R
+s4 X s4 X R
+s4 1 s9 1 R
+s4 0 s7 X S
+s4 _ s11 _ S
+s5 1 s5 1 L
+s5 X s5 X L
+s5 _ s6 _ R
+s6 X s6 X R
+s6 0 s10 0 R
+s6 1 s8 X S
+s6 _ s11 _ S
+s7 1 s7 1 L
+s7 X s7 X L
+s7 _ s1 _ R 
+s8 0 s8 0 L
+s8 X s8 X L
+s8 _ s2 _ R
+s9 X s9 X R
+s9 1 s9 1 R
+s9 0 s7 X S
+s10 0 s10 0 R
+s10 X s10 X R
+s10 1 s8 X S
