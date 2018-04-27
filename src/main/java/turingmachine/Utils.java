@@ -60,15 +60,35 @@ public class Utils {
         Random r = new Random(r1.nextInt());
         String p = getPalindrome(length, r.nextInt(), r.nextBoolean());
         if(!correct){
-            int errorType = r.nextInt(1);
+            int errorType = r.nextInt(2);
             int i = r.nextInt(p.length());
             StringBuilder sb = new StringBuilder(p);
             switch(errorType){
-                case 0: int random = r.nextInt(7)+3;
+                case 0: p = sb.toString();
+                        int len = p.length()/2;
+                        int j = r.nextInt(len);
+                        String str = Character.toString(p.charAt(j));
+                        if(str.equals("0")){
+                            if(r.nextBoolean()) sb.setCharAt(j, '1');
+                            else sb.setCharAt(j, '2');
+                        }
+                        else if(str.equals("1")){
+                            if(r.nextBoolean()) sb.setCharAt(j, '0');
+                            else sb.setCharAt(j, '2');
+                        }
+                        else{
+                            if(r.nextBoolean()) sb.setCharAt(j, '0');
+                            else sb.setCharAt(j, '1');
+                        }
+                        p = sb.toString();
+                        break;
+                case 1: int random = r.nextInt(7)+3;
                         sb.append(Integer.toString(random));
                         p = sb.toString();
                         break;
             }
+
+
         }
         return p;
     }

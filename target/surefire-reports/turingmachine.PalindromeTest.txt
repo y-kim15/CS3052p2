@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: turingmachine.PalindromeTest
 -------------------------------------------------------------------------------
-Tests run: 140, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.521 s - in turingmachine.PalindromeTest
+Tests run: 200, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.52 s - in turingmachine.PalindromeTest

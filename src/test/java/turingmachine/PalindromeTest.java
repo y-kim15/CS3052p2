@@ -15,6 +15,9 @@ import java.util.List;
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * This is a parametrised test class for running tm simulator tests
+ */
 @RunWith(Parameterized.class)
 public class PalindromeTest {
     private static String TMDescriptionFile = "testData/t1.txt";
@@ -56,7 +59,7 @@ public class PalindromeTest {
         if(det != null){
             if(det.equals("nd")){
                 if(!test) outputFile = "outputs/tm4_700_errors_output.csv";
-                else outputFile = "outputs/tm4_700_output_csv";
+                else outputFile = "outputs/tm4_700_output.csv";
                 form = false;
                 TMDescriptionFile = "testData/tm4.txt";
                 inputFile = "./tm4_in.txt";
@@ -115,14 +118,7 @@ public class PalindromeTest {
     }
 
     @Test
-    public void test() throws ClassNotFoundException, Exception {
-        //System.out.println("--------------------- Test Started ------------------------------");
-
-        String[] args = {TMDescriptionFile, inputFile};
-        //System.out.println("input is " + input);
-        //System.out.println("D file is " + TMDescriptionFile);
-        //System.out.println("input file is " + inputFile);
-
+    public void test() throws Exception {
         long startTime = System.nanoTime();
         boolean result;
         if(form) result = runD.runTm(TMDescriptionFile, inputFile);
@@ -132,22 +128,7 @@ public class PalindromeTest {
         totalTime += time;
         totalMove += runD.getMove();
         count++;
-        if(result){
-            System.out.println("PASS");
-        }
-        else{
-            System.out.println("FAIL");
-        }
         assertEquals(correct, result);
-        if(result != correct){
-            System.out.println("STOP!");
-            System.out.println("input was " + input);
-            //throw new NullPointerException();
-        }
-
-
-
-
     }
 
     @After
@@ -163,7 +144,7 @@ public class PalindromeTest {
             Utils.writeCSVLine(writer,inputBuffer);
             inputBuffer.clear();
             count =0;
-            min += step;//repeat;
+            min += step;
         }
         File file = new File(inputFile);
 
