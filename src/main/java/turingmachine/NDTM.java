@@ -39,7 +39,7 @@ public class NDTM extends TM{
      */
     public boolean test(String state, String symbol){
         while(true) {
-            System.out.println("read state " + state + " and symbol " + symbol);
+            //System.out.println("read state " + state + " and symbol " + symbol);
             Tuple read = new Tuple(state, symbol);
             if (root == null) {
                 //System.out.println("root is null");
@@ -86,8 +86,8 @@ public class NDTM extends TM{
                 }
                 else{
                     int value = Integer.parseInt(addressTape.get(addressHead));
-                    if (value >= children.size()) {
-                        System.out.println("no more children to test on");
+                    if (value >= children.size()-1) {
+                        //System.out.println("no more children to test on");
                         //head -= Utils.getDirection(current.getDir());//
                         //current = current.getParent();//
                         //addressTape.set(--addressHead, "_");
@@ -99,10 +99,10 @@ public class NDTM extends TM{
                         //System.out.println("current has " + current.getReadState() + " and symbol " + current.getReadSymbol());
                         addressHead--;
                         return false;
-                    } else if (value >= 0 && value < children.size()) {
-                        System.out.println("there exists somewhere to move!");
+                    } else if (value >= 0 && value < children.size()-1) {
+                        //System.out.println("there exists somewhere to move!");
                         addressTape.set(addressHead++, Integer.toString(value+1));
-                        child = newN.getChildren().get(value);//+1?
+                        child = newN.getChildren().get(value+1);//+1?
                         current = child;
                         //current.setParent(newN);//
                     }
@@ -118,7 +118,7 @@ public class NDTM extends TM{
                 setMoves(getMoves()+1);
                 int move = Utils.getDirection(current.getDir());
                 //System.out.println("move is " + move);
-                System.out.println("next state is " + currentState + " and write to head " + toWrite);
+                //System.out.println("next state is " + currentState + " and write to head " + toWrite);
                 if (head == 0 && move == -1) move = 0;
                 head += move;
 
@@ -129,7 +129,7 @@ public class NDTM extends TM{
                     }
                     currentSize += FIRSTSIZE;
                 }
-                System.out.println("size is " + addressTape.size() + " and head is at " + addressHead);
+                //System.out.println("size is " + addressTape.size() + " and head is at " + addressHead);
                 if(addressHead == addressTape.size()){
                     for (int i = 0; i < FIRSTSIZE; i++) {
                         addressTape.add("_");
@@ -137,8 +137,8 @@ public class NDTM extends TM{
                 }
                 state = currentState;
                 symbol = tape.get(head);
-                System.out.println("current state is " + state + " " + currentState + " and symbol is " + symbol + " " +
-                    tape.get(head));
+                //System.out.println("current state is " + state + " " + currentState + " and symbol is " + symbol + " " +
+                //    tape.get(head));
 
 
             }
@@ -154,7 +154,7 @@ public class NDTM extends TM{
      * @return boolean denoting whether to accept or reject
      */
     public boolean read(String input){
-        System.out.println("Start reading inside ndtm and input is " + input);
+        //System.out.println("Start reading inside ndtm and input is " + input);
         boolean accept = false;
         //String[] nums = getNumberArray(maxChild);
         //System.out.println(Arrays.deepToString(nums));
@@ -171,7 +171,8 @@ public class NDTM extends TM{
         while(!accept){
             accept = test(currentState, tape.get(head));
             if(!accept) {
-                System.out.println("!accept");
+                //System.out.println("!accept");
+
                 //if(addressHead < 0 ) return false; // case when completely invalid alphabet encountered
                 String i = addressTape.get(addressHead);
                 //System.out.println("addressHead is at index " + addressHead);

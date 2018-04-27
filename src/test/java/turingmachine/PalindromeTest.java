@@ -35,7 +35,7 @@ public class PalindromeTest {
         String problem = System.getProperty("problem");
         String errors = System.getProperty("errors");
         int type = 1;
-        boolean correct = true;
+        boolean test = true;
         if(problem != null) {
             type = Integer.parseInt(problem);
             TMDescriptionFile = "testData/t" + problem + ".txt";
@@ -45,7 +45,7 @@ public class PalindromeTest {
 
         }
         if(errors != null){
-            if(errors.equals("f")) correct = false;
+            if(errors.equals("f")) test = false;
             if(problem != null) outputFile = "outputs/t" + problem + "_errors_output.csv";
             else outputFile = "outputs/t1_errors_output.csv";
         }
@@ -55,15 +55,15 @@ public class PalindromeTest {
         String det = System.getProperty("type");
         if(det != null){
             if(det.equals("nd")){
-                if(!correct) outputFile = "outputs/tm4_all_errors_output.csv";//"outputs/tm3_all_errors_output.csv";//"outputs/tm3_700_errors_output.csv";
-                else outputFile = "outputs/tm4_output_csv";//"outputs/tm3_700_output.csv";
+                if(!test) outputFile = "outputs/tm4_700_errors_output.csv";
+                else outputFile = "outputs/tm4_700_output_csv";
                 form = false;
-                TMDescriptionFile = "testData/tm4.txt";//"testData/tm3.txt";
-                inputFile = "./tm4_in.txt";//"./tm3_in.txt";
-                type = 1;//1;
-                min = 5;
-                max = 5;
-                step = 10;
+                TMDescriptionFile = "testData/tm4.txt";
+                inputFile = "./tm4_in.txt";
+                type = 1;
+                min = 100;
+                max = 700;
+                step = 100;
             }
         }
         if(problem == null && errors == null && det == null){
@@ -74,7 +74,7 @@ public class PalindromeTest {
             outputFile = "outputs/tm1_700_output.csv";
         }
         System.out.println("type " + type + " min " + min + " max " + max + " repeat " + repeat + " step " + step);
-        return Utils.getParamsByConditions(type, correct, min,max,repeat, step);
+        return Utils.getParamsByConditions(type, test, min,max,repeat, step);
     }
 
     private String input;
@@ -124,7 +124,7 @@ public class PalindromeTest {
         //System.out.println("input file is " + inputFile);
 
         long startTime = System.nanoTime();
-        boolean result = false;
+        boolean result;
         if(form) result = runD.runTm(TMDescriptionFile, inputFile);
         else result = runD.runNtm(TMDescriptionFile, inputFile);
         long endTime   = System.nanoTime();
@@ -132,15 +132,19 @@ public class PalindromeTest {
         totalTime += time;
         totalMove += runD.getMove();
         count++;
-        //if(result) System.out.println("PASS");
-        //else System.out.println("FAIL");
-
+        if(result){
+            System.out.println("PASS");
+        }
+        else{
+            System.out.println("FAIL");
+        }
+        assertEquals(correct, result);
         if(result != correct){
             System.out.println("STOP!");
             System.out.println("input was " + input);
-            throw new NullPointerException();
+            //throw new NullPointerException();
         }
-        assertEquals(correct, result);
+
 
 
 

@@ -35,11 +35,11 @@ s3 1 s6 1 R
 s3 2 s6 2 R
 s3 _ s6 _ L
 s4 0 s7 _ L
-s4 _ s8 _ L
+s4 _ s8 _ R
 s5 1 s7 _ L
-s5 _ s8 _ L
+s5 _ s8 _ R
 s6 2 s7 _ L
-s6 _ s8 _ L
+s6 _ s8 _ R
 s7 0 s7 0 L
 s7 1 s7 1 L
 s7 2 s7 2 L

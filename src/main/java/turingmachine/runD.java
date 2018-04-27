@@ -132,5 +132,6 @@ public class runD {
         else{
             System.out.println("FAIL");
         }
+        System.out.println("input file was " + path + " string file " + input);
     }
 }

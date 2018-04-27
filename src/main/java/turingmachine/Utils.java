@@ -64,30 +64,11 @@ public class Utils {
             int i = r.nextInt(p.length());
             StringBuilder sb = new StringBuilder(p);
             switch(errorType){
-                case 0: p = sb.toString();
-                        int j = r.nextInt(p.length());
-                        String str = Character.toString(p.charAt(j));
-                        if(str.equals("0")){
-                            if(r.nextBoolean()) sb.setCharAt(j, '1');
-                            else sb.setCharAt(j, '2');
-                        }
-                        else if(str.equals("1")){
-                            if(r.nextBoolean()) sb.setCharAt(j, '0');
-                            else sb.setCharAt(j, '2');
-                        }
-                        else{
-                            if(r.nextBoolean()) sb.setCharAt(j, '0');
-                            else sb.setCharAt(j, '1');
-                        }
-                        p = sb.toString();
-                        break;
-                case 1: int random = r.nextInt(7)+3;
+                case 0: int random = r.nextInt(7)+3;
                         sb.append(Integer.toString(random));
                         p = sb.toString();
                         break;
             }
-
-
         }
         return p;
     }
@@ -383,7 +364,7 @@ public class Utils {
                     case 1: if(correct) ob[0]= generatePalindrome(correct, i);
 
                             else {
-                                boolean which =false;// r5.nextBoolean();
+                                boolean which = r5.nextBoolean();
                                 ob[0] = generatePalindrome(which, i);
                                 ob[1] = which;
                             }
