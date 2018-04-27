@@ -44,16 +44,12 @@ public class PalindromeTest {
             TMDescriptionFile = "testData/t" + problem + ".txt";
             inputFile = "./t" + problem + "_in.txt";
             outputFile = "outputs/t" + problem + "_output.csv";
-            System.out.println("problem value is found");
 
         }
         if(errors != null){
             if(errors.equals("f")) test = false;
             if(problem != null) outputFile = "outputs/t" + problem + "_errors_output.csv";
             else outputFile = "outputs/t1_errors_output.csv";
-        }
-        else{
-            System.out.println("error term not found");
         }
         String det = System.getProperty("type");
         if(det != null){
@@ -76,7 +72,6 @@ public class PalindromeTest {
             step = 100;
             outputFile = "outputs/tm1_700_output.csv";
         }
-        System.out.println("type " + type + " min " + min + " max " + max + " repeat " + repeat + " step " + step);
         return Utils.getParamsByConditions(type, test, min,max,repeat, step);
     }
 
@@ -163,8 +158,6 @@ public class PalindromeTest {
     public static void tidy()throws IOException{
         try{
             writer.close();
-            System.out.println("D file is " + TMDescriptionFile);
-            System.out.println("input file is " + inputFile);
         }
         catch (IOException e){
             e.getMessage();
